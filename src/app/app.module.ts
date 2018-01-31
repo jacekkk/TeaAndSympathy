@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   {path: 'homeware', component: HomewareComponent},
   {path: 'contact', component: ContactComponent}
 
-]
+];
 
 @NgModule({
   declarations: [
