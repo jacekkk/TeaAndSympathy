@@ -9,7 +9,7 @@ export class CafeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit()
+  {
   }
-
 }

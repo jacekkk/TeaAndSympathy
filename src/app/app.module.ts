@@ -16,7 +16,7 @@ import { CafeComponent } from './components/cafe/cafe.component';
 const appRoutes: Routes = [
 
   {path: '', component: LandingComponent},
-  {path: 'cafe', component: LandingComponent},
+  {path: 'cafe', component: CafeComponent},
   {path: 'furniture', component: FurnitureComponent},
   {path: 'homeware', component: HomewareComponent},
   {path: 'contact', component: ContactComponent}
