@@ -12,6 +12,7 @@ import { FurnitureComponent } from './components/furniture/furniture.component';
 import { HomewareComponent } from './components/homeware/homeware.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { CafeComponent } from './components/cafe/cafe.component';
+import { AboutComponent } from './components/about/about.component';
 
 const appRoutes: Routes = [
 
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     FurnitureComponent,
     HomewareComponent,
     ContactComponent,
-    CafeComponent
+    CafeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
