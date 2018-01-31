@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule} from '@angular/router';
 
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { CafeComponent } from './components/cafe/cafe.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -13,10 +14,13 @@ import { CafeComponent } from './components/cafe/cafe.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    CafeComponent
+    LandingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: 'landing page', component: LandingComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
