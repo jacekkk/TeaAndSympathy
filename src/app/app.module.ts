@@ -13,12 +13,15 @@ import { FurnitureComponent } from './components/furniture/furniture.component';
 import { HomewareComponent } from './components/homeware/homeware.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { CafeComponent } from './components/cafe/cafe.component';
-import { AboutComponent } from './components/about/about.component';
+import { SuppliersComponent } from './components/suppliers/suppliers.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 const appRoutes: Routes = [
 
   {path: '', component: LandingComponent},
   {path: 'cafe', component: CafeComponent},
+  {path: 'cafe/suppliers', component: SuppliersComponent},
+  {path: 'cafe/menu', component: MenuComponent},
   {path: 'furniture', component: FurnitureComponent},
   {path: 'homeware', component: HomewareComponent},
   {path: 'contact', component: ContactComponent}
@@ -35,7 +38,8 @@ const appRoutes: Routes = [
     HomewareComponent,
     ContactComponent,
     CafeComponent,
-    AboutComponent
+    SuppliersComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
