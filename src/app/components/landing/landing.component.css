@@ -1,6 +1,13 @@
-.background {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
+.carousel-item {
+    height: 90vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+}
+
+.jumbotron {
+    background-color:transparent !important; 
 }

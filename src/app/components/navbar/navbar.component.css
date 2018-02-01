@@ -1,6 +1,8 @@
+
 .navbar-nav a{
 
     color: rgb(150, 154, 154);
+    padding-left: 20px;
 }
 
 .dropdown-menu a:hover{
