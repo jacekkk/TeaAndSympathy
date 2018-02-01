@@ -3,12 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LandingComponent } from './components/landing/landing.component';
-
 import { FurnitureComponent } from './components/furniture/furniture.component';
 import { HomewareComponent } from './components/homeware/homeware.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -16,8 +14,14 @@ import { CafeComponent } from './components/cafe/cafe.component';
 import { SuppliersComponent } from './components/suppliers/suppliers.component';
 import { MenuComponent } from './components/menu/menu.component';
 
-const appRoutes: Routes = [
+import 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
+
+const appRoutes: Routes = [
   {path: '', component: LandingComponent},
   {path: 'cafe', component: CafeComponent},
   {path: 'cafe/suppliers', component: SuppliersComponent},
@@ -25,7 +29,6 @@ const appRoutes: Routes = [
   {path: 'furniture', component: FurnitureComponent},
   {path: 'homeware', component: HomewareComponent},
   {path: 'contact', component: ContactComponent}
-
 ];
 
 @NgModule({
@@ -44,7 +47,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FormsModule,
+    BrowserAnimationsModule, MatExpansionModule, MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
