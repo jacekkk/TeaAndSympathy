@@ -1,8 +1,8 @@
 <div class="example-container">
   <form>
     <mat-card>
+      <!--SUBJECT FIELD-->
       <div>
-        <!--SUBJECT FIELD-->
         <mat-form-field class="example-full-width"
                         [hideRequiredMarker]="options.value.hideRequired"
                         [floatLabel]="options.value.floatLabel">
@@ -16,8 +16,8 @@
         </mat-form-field>
       </div>
 
+      <!--NAME FIELD-->
       <div>
-        <!--NAME FIELD-->
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Name" [formControl]="nameFormControl"
                  [errorStateMatcher]="matcher">
@@ -30,8 +30,8 @@
         </mat-form-field>
       </div>
 
+      <!--EMAIL FIELD-->
       <div>
-        <!--EMAIL FIELD-->
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Email" [formControl]="emailFormControl"
                  [errorStateMatcher]="matcher">
@@ -44,8 +44,8 @@
         </mat-form-field>
       </div>
 
+      <!--PHONE NUMBER FIELD-->
       <div>
-        <!--PHONE NUMBER FIELD-->
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Phone number" [formControl]="phoneFormControl"
                  [errorStateMatcher]="matcher">
@@ -55,6 +55,7 @@
         </mat-form-field>
       </div>
 
+      <!--MESSAGE FIELD-->
       <div>
         <mat-form-field class="example-full-width">
   <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="2"
@@ -62,6 +63,12 @@
         </mat-form-field>
       </div>
 
+      <!--CAPTCHA-->
+      <br>
+      <div class="g-recaptcha" data-sitekey="6LcPSkQUAAAAAIqJO5xs1ZPO1tmp2VWNvdKO12u8"></div>
+      <br>
+
+      <!--BUTTONS-->
       <div>
         <button mat-raised-button (click)="cancel()">Cancel</button>
         <button mat-raised-button color="accent" (click)="send()">Send</button>
