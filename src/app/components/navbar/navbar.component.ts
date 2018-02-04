@@ -9,12 +9,21 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+
+  constructor() { 
+    
+  
+    
+
+  }
 
   ngOnInit() {
 
+
   
   }
+
+
   
 
 }

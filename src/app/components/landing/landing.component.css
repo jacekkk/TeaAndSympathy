@@ -13,7 +13,8 @@
 }
 
 .jumbotron {
-    background-color:transparent !important; 
+
+    background-color:transparent; 
 }
 
 .about_head{
@@ -34,4 +35,5 @@ h3{
 div{
     font-family: 'Raleway', sans-serif;
 }
+
 

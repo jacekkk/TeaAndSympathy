@@ -1,37 +1,22 @@
-<nav class="navbar  navbar-light">
-  <a class="navbar-brand" href="/" style="display:block; margin-left: auto; margin-right: auto;"> <img src="/assets/img/logocream.png" width="100" height="50" class="d-inline-block align-top" alt=""  ></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link"></a> <!-- dummy for spacing -->
-          </li>
-      <li class="nav-item dropdown ">
-        <a class="nav-link dropdown-toggle" routerLink="/cafe" id="navbardrop" data-toggle="dropdown">
-          Cafe
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" routerLink="/cafe/menu">Menu</a>
-          <a class="dropdown-item" routerLink="/cafe/suppliers">Suppliers</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/furniture">Furniture</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/homeware">Homeware</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact">Contact</a>
-      </li>
-    </ul>
-  </div>
+
+<nav class="navbar"> 
+  <span class="open-slide">
+    <a href="#" onclick="openSlideMenu()">
+      <svg width="30" height="30">
+          <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+          <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+          <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+      </svg>
+    </a>
+  </span>
+      <a class="navbar-brand" href="/" style="display:block; margin-left: auto; margin-right: auto;"> <img src="/assets/img/logocream.png" width="100" height="50" class="d-inline-block align-top" alt=""  ></a>
+
 </nav>
 
-
-
-
-
-<!-- "navbar-expand-md"  this add this into top nav bar tag class and it will only show burger wehn screen becomes small -->
+<div id="side-menu" class="side-nav">
+  <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</div>
