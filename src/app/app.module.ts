@@ -4,7 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -19,6 +21,11 @@ import { MenuComponent } from './components/menu/menu.component';
 
 import { MatFormFieldModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { MessageService } from './logic/MessageService';
 
 import {
   MatAutocompleteModule,
@@ -118,9 +125,11 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatStepperModule
+    MatStepperModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
