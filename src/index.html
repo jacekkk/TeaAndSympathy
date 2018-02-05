@@ -20,6 +20,8 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 
+
+<!-- script code for nave menu -->
 <script>
   function openSlideMenu() {
     document.getElementById('side-menu').style.width = '250px';
@@ -30,6 +32,18 @@
     document.getElementById('side-menu').style.width = null;
     document.getElementById('main').style.marginLeft = null;
   }
+
+var i = 0;
+var txt = 'Lorem ipsum typing effect!'; /* The text */
+var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
 </script>
 
 </html>

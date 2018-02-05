@@ -18,8 +18,7 @@
   }
 
   #slide-main{
-    transition:margin-left 0.5s;
-    /* padding:20px; */
+    transition:margin-left 1s;
     overflow:hidden;
     width:100%;
     
