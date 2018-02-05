@@ -1,37 +1,38 @@
 @font-face {
-    font-family: 'Raleway';
-    src: url('/assets/fonts/raleway_thin-webfont.ttf')  format('truetype');
-  }
+  font-family: 'Raleway';
+  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
+}
+
 .carousel-item {
-    height: 92.5vh;
-    min-height: 300px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 92.5vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .jumbotron {
 
-    background-color:transparent; 
+  background-color: transparent;
 }
 
-.about_head{
+.about_head {
 
-    margin-top: 60px;
-    margin-left: 35px;
-    margin-right: 20px;
-    line-height: 1.9;
-    color: rgb(122, 123, 122);
+  margin-top: 60px;
+  margin-left: 35px;
+  margin-right: 20px;
+  line-height: 1.9;
+  color: rgb(122, 123, 122);
 }
 
-h3{
-    color: rgb(122, 123, 122);
+h3 {
+  color: rgb(122, 123, 122);
 }
 
-div{
-    font-family: 'Raleway', sans-serif;
+div {
+  font-family: 'Raleway', sans-serif;
 }
 
 
