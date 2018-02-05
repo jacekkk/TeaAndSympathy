@@ -6,11 +6,11 @@
         <mat-form-field class="example-full-width"
                         [hideRequiredMarker]="options.value.hideRequired"
                         [floatLabel]="options.value.floatLabel">
-          <mat-select>
-            <mat-option value="option">Cafe</mat-option>
-            <mat-option value="option">Furniture</mat-option>
-            <mat-option value="option">Homeware</mat-option>
-            <mat-option value="option">Other</mat-option>
+          <mat-select name="subject" [(ngModel)]="message.subject">
+            <mat-option value="Cafe">Cafe</mat-option>
+            <mat-option value="Furniture">Furniture</mat-option>
+            <mat-option value="Homeware">Homeware</mat-option>
+            <mat-option value="Other">Other</mat-option>
           </mat-select>
           <mat-placeholder>Enquiry subject</mat-placeholder>
         </mat-form-field>
@@ -20,7 +20,8 @@
       <div>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Name" [formControl]="nameFormControl"
-                 [errorStateMatcher]="matcher">
+                 [errorStateMatcher]="matcher"  name="name"
+                 [(ngModel)]="message.name">
           <mat-error *ngIf="nameFormControl.hasError('pattern') && !nameFormControl.hasError('required')">
             Please enter your full name
           </mat-error>
@@ -34,7 +35,8 @@
       <div>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Email" [formControl]="emailFormControl"
-                 [errorStateMatcher]="matcher">
+                 [errorStateMatcher]="matcher"  name="email"
+                 [(ngModel)]="message.email">
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
             Please enter a valid email address
           </mat-error>
@@ -48,7 +50,8 @@
       <div>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Phone number" [formControl]="phoneFormControl"
-                 [errorStateMatcher]="matcher">
+                 [errorStateMatcher]="matcher"  name="phone"
+                 [(ngModel)]="message.phone">
           <mat-error *ngIf="phoneFormControl.hasError('pattern')">
             Please enter a valid phone number
           </mat-error>
@@ -59,7 +62,8 @@
       <div>
         <mat-form-field class="example-full-width">
   <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="2"
-            matAutosizeMaxRows="5"></textarea>
+            matAutosizeMaxRows="5"  name="message"
+            [(ngModel)]="message.body"></textarea>
         </mat-form-field>
       </div>
 
@@ -70,8 +74,8 @@
 
       <!--BUTTONS-->
       <div>
-        <button mat-raised-button (click)="cancel()">Cancel</button>
-        <button mat-raised-button color="accent" (click)="send()">Send</button>
+        <button mat-raised-button (click)="onCancel()">Cancel</button>
+        <button mat-raised-button color="accent" (click)="onSend()">Send</button>
       </div>
     </mat-card>
   </form>
