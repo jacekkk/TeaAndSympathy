@@ -1,5 +1,5 @@
 <div class="example-container">
-  <form>
+  <form class = "form">   
     <mat-card>
       <!--SUBJECT FIELD-->
       <div>
@@ -61,7 +61,7 @@
       <!--MESSAGE FIELD-->
       <div>
         <mat-form-field class="example-full-width">
-  <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="2"
+  <textarea matInput placeholder="Message"  [formControl]="messageFormControl" matTextareaAutosize matAutosizeMinRows="2"
             matAutosizeMaxRows="5"  name="message"
             [(ngModel)]="message.body"></textarea>
         </mat-form-field>
@@ -75,7 +75,7 @@
       <!--BUTTONS-->
       <div>
         <button mat-raised-button (click)="onCancel()">Cancel</button>
-        <button mat-raised-button color="accent" (click)="onSend()">Send</button>
+        <button mat-raised-button color="accent" (click)="onSend()"class ="send">Send</button>
       </div>
     </mat-card>
   </form>

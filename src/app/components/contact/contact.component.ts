@@ -23,10 +23,12 @@ declare var grecaptcha: any;
 @Component({
   selector: 'contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+  
 })
 export class ContactComponent implements OnInit
 {
+  
   options: FormGroup;
   matcher = new MyErrorStateMatcher();
   message: Message;
@@ -48,11 +50,15 @@ export class ContactComponent implements OnInit
     Validators.pattern('^([+]?\\d{1,2}[-\\s]?|)\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$'),
   ]);
 
+   // tracks the value message text area in the form
+   messageFormControl = new FormControl('', []);
+
   constructor(fb: FormBuilder,
               private messageService: MessageService) {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto',
+
     });
   }
 
@@ -60,19 +66,39 @@ export class ContactComponent implements OnInit
     this.message = new Message();
   }
 
+
+  sendAlert() {
+    
+    alert("message sent");
+  
+  }
+
+  resetForm(){
+
+      this.emailFormControl.reset();
+      this.nameFormControl.reset();
+      this.phoneFormControl.reset();
+      this.messageFormControl.reset();
+      grecaptcha.reset();
+  }
+
   onSend() {
+
     if(grecaptcha.getResponse() === '')
     {
       console.log('Recaptcha failed');
+      console.log(grecaptcha.getResponse());
     }
     else
     {
       this.messageService.insertMessage(this.message);
       console.log(this.message);
-      console.log(grecaptcha.getResponse());
+      this.sendAlert();
+      this.resetForm();
     }
 
   }
+  
 
   onCancel() {
   }
