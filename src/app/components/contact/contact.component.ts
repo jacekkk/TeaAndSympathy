@@ -3,12 +3,12 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {Injectable} from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Message } from '../../logic/Message';
-import { MessageService } from '../../logic/MessageService';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import {Message} from '../../logic/Message';
+import {MessageService} from '../../logic/MessageService';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -26,9 +26,13 @@ declare var grecaptcha: any;
   styleUrls: ['./contact.component.css'],
   
 })
+<<<<<<< HEAD
 export class ContactComponent implements OnInit
 {
   
+=======
+export class ContactComponent implements OnInit {
+>>>>>>> 0f4edfea9e51a8070df346b330eaba827f7d2002
   options: FormGroup;
   matcher = new MyErrorStateMatcher();
   message: Message;
@@ -83,14 +87,17 @@ export class ContactComponent implements OnInit
   }
 
   onSend() {
+<<<<<<< HEAD
 
     if(grecaptcha.getResponse() === '')
     {
+=======
+    if (grecaptcha.getResponse() === '') {
+>>>>>>> 0f4edfea9e51a8070df346b330eaba827f7d2002
       console.log('Recaptcha failed');
       console.log(grecaptcha.getResponse());
     }
-    else
-    {
+    else {
       this.messageService.insertMessage(this.message);
       console.log(this.message);
       this.sendAlert();
