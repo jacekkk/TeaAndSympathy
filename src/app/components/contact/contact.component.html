@@ -1,96 +1,100 @@
-<div class="example-container">
-  <form>
-    <mat-card>
-      <!--SUBJECT FIELD-->
-      <div>
-        <mat-form-field class="example-full-width"
-                        [hideRequiredMarker]="options.value.hideRequired"
-                        [floatLabel]="options.value.floatLabel">
-          <mat-select name="subject" [(ngModel)]="message.subject">
-            <mat-option value="Cafe">Cafe</mat-option>
-            <mat-option value="Furniture">Furniture</mat-option>
-            <mat-option value="Homeware">Homeware</mat-option>
-            <mat-option value="Other">Other</mat-option>
-          </mat-select>
-          <mat-placeholder>Enquiry subject</mat-placeholder>
-        </mat-form-field>
-      </div>
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+  <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+      <form>
+        <mat-card>
+          <!--SUBJECT FIELD-->
+          <div>
+            <mat-form-field class="example-full-width"
+                            [hideRequiredMarker]="options.value.hideRequired"
+                            [floatLabel]="options.value.floatLabel">
+              <mat-select name="subject" [(ngModel)]="message.subject">
+                <mat-option value="Cafe">Cafe</mat-option>
+                <mat-option value="Furniture">Furniture</mat-option>
+                <mat-option value="Homeware">Homeware</mat-option>
+                <mat-option value="Other">Other</mat-option>
+              </mat-select>
+              <mat-placeholder>Enquiry subject</mat-placeholder>
+            </mat-form-field>
+          </div>
 
-      <!--NAME FIELD-->
-      <div>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Name" [formControl]="nameFormControl"
-                 [errorStateMatcher]="matcher" name="name"
-                 [(ngModel)]="message.name">
-          <mat-error *ngIf="nameFormControl.hasError('pattern') && !nameFormControl.hasError('required')">
-            Please enter your full name
-          </mat-error>
-          <mat-error *ngIf="nameFormControl.hasError('maxlength')">
-            Name is <strong>too long</strong>
-          </mat-error>
-          <mat-error *ngIf="nameFormControl.hasError('required')">
-            Name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
+          <!--NAME FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Name" [formControl]="nameFormControl"
+                     [errorStateMatcher]="matcher" name="name"
+                     [(ngModel)]="message.name">
+              <mat-error *ngIf="nameFormControl.hasError('pattern') && !nameFormControl.hasError('required')">
+                Please enter your full name
+              </mat-error>
+              <mat-error *ngIf="nameFormControl.hasError('maxlength')">
+                Name is <strong>too long</strong>
+              </mat-error>
+              <mat-error *ngIf="nameFormControl.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
 
-      <!--EMAIL FIELD-->
-      <div>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email" [formControl]="emailFormControl"
-                 [errorStateMatcher]="matcher" name="email"
-                 [(ngModel)]="message.email">
-          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('maxlength')">
-            Email is <strong>too long</strong>
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
+          <!--EMAIL FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email" [formControl]="emailFormControl"
+                     [errorStateMatcher]="matcher" name="email"
+                     [(ngModel)]="message.email">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('maxlength')">
+                Email is <strong>too long</strong>
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
 
-      <!--PHONE NUMBER FIELD-->
-      <div>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Phone number (optional)" [formControl]="phoneFormControl"
-                 [errorStateMatcher]="matcher" name="phone"
-                 [(ngModel)]="message.phone">
-          <mat-error *ngIf="phoneFormControl.hasError('pattern')">
-            Please enter a valid phone number
-          </mat-error>
-          <mat-error *ngIf="phoneFormControl.hasError('maxlength')">
-            Phone number is <strong>too long</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
+          <!--PHONE NUMBER FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Phone number (optional)" [formControl]="phoneFormControl"
+                     [errorStateMatcher]="matcher" name="phone"
+                     [(ngModel)]="message.phone">
+              <mat-error *ngIf="phoneFormControl.hasError('pattern')">
+                Please enter a valid phone number
+              </mat-error>
+              <mat-error *ngIf="phoneFormControl.hasError('maxlength')">
+                Phone number is <strong>too long</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
 
-      <!--MESSAGE FIELD-->
-      <div>
-        <mat-form-field class="example-full-width">
+          <!--MESSAGE FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
   <textarea matInput placeholder="Message" [formControl]="messageFormControl" matTextareaAutosize matAutosizeMinRows="2"
             matAutosizeMaxRows="5" name="message"
             [(ngModel)]="message.body"></textarea>
-          <mat-error *ngIf="messageFormControl.hasError('maxlength')">
-            Message is <strong>too long</strong>
-          </mat-error>
-          <mat-error *ngIf="messageFormControl.hasError('required')">
-            Message is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
+              <mat-error *ngIf="messageFormControl.hasError('maxlength')">
+                Message is <strong>too long</strong>
+              </mat-error>
+              <mat-error *ngIf="messageFormControl.hasError('required')">
+                Message is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
 
-      <!--CAPTCHA-->
-      <br>
-      <div class="g-recaptcha" data-sitekey="6LcPSkQUAAAAAIqJO5xs1ZPO1tmp2VWNvdKO12u8"></div>
-      <br>
+          <!--CAPTCHA-->
+          <br>
+          <div class="g-recaptcha" data-sitekey="6LcPSkQUAAAAAIqJO5xs1ZPO1tmp2VWNvdKO12u8"></div>
+          <br>
 
-      <!--BUTTONS-->
-      <div>
-        <button mat-raised-button class="send-button" (click)="onSend()">Send</button>
-      </div>
-    </mat-card>
-  </form>
+          <!--BUTTONS-->
+          <div>
+            <button mat-raised-button class="send-button" (click)="onSend()">Send</button>
+          </div>
+        </mat-card>
+      </form>
+    </div>
+  </div>
 </div>
