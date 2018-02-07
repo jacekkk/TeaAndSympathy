@@ -6,7 +6,7 @@
 .navbar{
     background-color:#041027c1;
     overflow:hidden;
-    height:55px;
+    height:10vh;
   }
 
   
@@ -70,6 +70,6 @@
 
     color: #fff;
     font-family: 'Raleway', sans-serif;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 30px;
+   
   }

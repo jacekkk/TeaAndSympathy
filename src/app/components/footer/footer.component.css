@@ -35,6 +35,10 @@
     margin: 0 auto;
    
   }
+  .copy{
+    margin: 0 auto;
+   
+  }
 
   .navbar{
 
@@ -46,6 +50,12 @@
     color: antiquewhite;
 
   }
+  p{
+    font-size: 10px;
+    color: antiquewhite;
+   
+  }
+ 
   
  
   /* class="navbar-btn btn-danger btn pull-right"> */
