@@ -19,6 +19,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { CafeComponent } from './components/cafe/cafe.component';
 import { SuppliersComponent } from './components/suppliers/suppliers.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { HeaderComponent } from './components/header/header.component';
 
 import { MatFormFieldModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -63,6 +64,7 @@ import {
 } from '@angular/material';
 
 
+
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
   {path: 'cafe', component: CafeComponent},
@@ -84,7 +86,8 @@ const appRoutes: Routes = [
     ContactComponent,
     CafeComponent,
     SuppliersComponent,
-    MenuComponent
+    MenuComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
