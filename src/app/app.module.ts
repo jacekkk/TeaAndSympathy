@@ -88,7 +88,7 @@ const appRoutes: Routes = [
     CafeComponent,
     SuppliersComponent,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
     MenuComponent,
     DialogContactForm
   ],
