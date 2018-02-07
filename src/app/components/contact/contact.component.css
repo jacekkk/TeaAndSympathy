@@ -24,6 +24,7 @@
 }
 
 .example-full-width {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   width: 100%;
 }
 
@@ -62,10 +63,28 @@
   }
 }
 
+.send-button{
+  background-color:	#41495C;
+  color: #fff;
+}
+
 .g-recaptcha {
   width: auto;
 }
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+#map-container{
+  height: 50vh;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: grey;
 }

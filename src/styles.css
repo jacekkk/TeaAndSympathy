@@ -3,7 +3,7 @@
 
 /* gets bootstrap for npm module */
 
-.bg{
+.bg {
   height: 95vh;
   min-height: 300px;
   background: no-repeat center center scroll;
@@ -11,21 +11,22 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  }
+}
 
-  /* body {
-    overflow-x: hidden;
-  } */
+/* body {
+  overflow-x: hidden;
+} */
 
-  #slide-main{
-    transition:margin-left 1s;
-    overflow:hidden;
-    width:100%;
-  }
-  div {
-    font-family: 'Raleway', sans-serif;
-  }
+#slide-main {
+  transition: margin-left 1s;
+  overflow: hidden;
+  width: 100%;
+}
 
-  /* slide-main moves compontnet to the right when nav bar opens */
+/*div {
+  font-family: 'Raleway', sans-serif;
+}*/
+
+/* slide-main moves compontnet to the right when nav bar opens */
 
 

@@ -1,13 +1,13 @@
 export class Message {
 
   // Properties
-  subject: string;
-  name: string;
-  email: string;
-  phone: number;
-  body: string;
+  subject: string = null;
+  name: string = null;
+  email: string = null;
+  phone: number = null;
+  body: string = null;
 
-  constructor(public subject: string = null, public name: string = null, public email: string = null,
-              public phone: number = null, public body: string = null) {}
+  constructor() {
+  }
 
 }

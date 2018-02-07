@@ -12,6 +12,8 @@ import {MessageService} from '../../logic/MessageService';
 import {MatSnackBar} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {text} from '@angular/core/src/render3/instructions';
+declare var grecaptcha: any;
+declare var google: any;
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -20,8 +22,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-
-declare var grecaptcha: any;
 
 @Component({
   selector: 'contact',
@@ -34,6 +34,7 @@ export class ContactComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   message: Message;
   dialogText: string;
+  sampleString: string;
 
   // tracks the value and validation status of the email input field in the form
   emailFormControl = new FormControl('', [
@@ -73,6 +74,25 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.message = new Message();
+    this.initMap();
+
+    this.sampleString = "kurwa";
+  }
+
+  initMap(){
+    const cafeLocation = {lat: 55.932594, lng: -3.228151};
+
+    let mapProp = {
+      center: new google.maps.LatLng(cafeLocation),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    let map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+    const marker = new google.maps.Marker({
+      position: cafeLocation,
+      map: map
+    });
   }
 
   // resets form to its original state
