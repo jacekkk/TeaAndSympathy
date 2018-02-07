@@ -13,9 +13,9 @@
   background-size: cover;
   }
 
-  body {
+  /* body {
     overflow-x: hidden;
-  }
+  } */
 
   #slide-main{
     transition:margin-left 1s;

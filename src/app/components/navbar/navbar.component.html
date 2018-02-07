@@ -1,29 +1,37 @@
-
 <nav class="navbar">
-  <span class="open-slide">
-    <a  onclick ="openSlideMenu()">
-      <svg width="30" height="30">
-          <path d="M0,5 30,5" stroke="#fff" stroke-width="2"/>
-          <path d="M0,14 30,14" stroke="#fff" stroke-width="2"/>
-          <path d="M0,23 30,23" stroke="#fff" stroke-width="2"/>
-      </svg>
+    <span class="open-slide">
+       <a  onclick ="openSlideMenu()">
+          <svg width="30" height="30">
+             <path d="M0,5 30,5" stroke="#fff" stroke-width="2"/>
+             <path d="M0,14 30,14" stroke="#fff" stroke-width="2"/>
+             <path d="M0,23 30,23" stroke="#fff" stroke-width="2"/>
+          </svg>
+       </a>
+    </span>
+    <a class="navbar-brand" routerLink="/" style="display:block; margin-left: auto; margin-right: auto;">
+       <h1>
+    <a href="" class="typewrite"> Tea & Sympathy
     </a>
-  </span>
-      <a class="navbar-brand" href="/" style="display:block; margin-left: auto; margin-right: auto;"> <h1>
-          <a href="" class="typewrite" data-period="2000" data-type='[ "TEA AND SYMPATHY", "EAT", "DRINK", "SHOP" ]'>
-            <span class="wrap"></span>
-          </a>
-        </h1></a>
-
-</nav>
-
-<div id="side-menu" class="side-nav">
-  <a class="btn-close" onclick="closeSlideMenu()">&times;</a>
-  <a href="#">Cafe</a>
-  <a href="#">Furniture</a>
-  <a href="#">Homeware</a>
-  <a href="#">Contact</a>
-  <img src="/assets/img/ts4.png" width="80" height="40" >
-
-</div>
-
+    </h1></a>
+ </nav>
+ <div id="side-menu" class="side-nav">
+    <a class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <li class="nav-item dropdown">
+       <a data-toggle="collapse" data-target="#collapsibleNavbar" href = "">
+       Cafe
+       </a>
+       <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+             <li class="nav-item">
+                <a class="nav-link" routerLink ="/cafe/menu" style = "margin-left:15px">Menu</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" routerLink ="/cafe/suppliers" style = "margin-left:15px">Suplliers</a>
+             </li>
+          </ul>
+       </div>
+       <a routerLink ="/furniture">Furniture</a>
+       <a routerLink ="/homeware">Homeware</a>
+       <a routerLink ="/contact">Contact</a>
+    </li>
+ </div>
