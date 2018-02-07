@@ -56,16 +56,6 @@
   margin-left: 50px;
 }
 
-@media (max-width: 568px) {
-  .navbar-nav {
-    display: none
-  }
-}
-
-@media (min-width: 568px) {
-  /*.open-slide{display:none}*/
-}
-
 .typewrite {
   color: #fff;
   font-family: 'Raleway', sans-serif;

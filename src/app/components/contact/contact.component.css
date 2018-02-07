@@ -63,6 +63,11 @@
   }
 }
 
+.send-button{
+  background-color:	#41495C;
+  color: #fff;
+}
+
 .g-recaptcha {
   width: auto;
 }

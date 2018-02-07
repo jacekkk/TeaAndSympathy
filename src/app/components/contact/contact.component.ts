@@ -34,6 +34,7 @@ export class ContactComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   message: Message;
   dialogText: string;
+  sampleString: string;
 
   // tracks the value and validation status of the email input field in the form
   emailFormControl = new FormControl('', [
@@ -74,6 +75,8 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.message = new Message();
     this.initMap();
+
+    this.sampleString = "kurwa";
   }
 
   initMap(){
