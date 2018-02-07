@@ -7,13 +7,7 @@ export class Message {
   phone: number;
   body: string;
 
-/*  constructor(public subject: string, public name: string, public email: string,
-              public phone: number, public body: string) {
-    this.subject = subject;
-    this.name = name;
-    this.email = email;
-    this.phone = phone;
-    this.body = body;
-  }*/
+  constructor(public subject: string = null, public name: string = null, public email: string = null,
+              public phone: number = null, public body: string = null) {}
 
 }

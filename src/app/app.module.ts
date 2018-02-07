@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
 import { environment } from '../environments/environment';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { DialogContactForm } from '../app/components/contact/contact.component';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -84,7 +85,8 @@ const appRoutes: Routes = [
     ContactComponent,
     CafeComponent,
     SuppliersComponent,
-    MenuComponent
+    MenuComponent,
+    DialogContactForm
   ],
   imports: [
     BrowserModule,
@@ -131,6 +133,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule
   ],
   providers: [MessageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogContactForm]
 })
 export class AppModule { }
