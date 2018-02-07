@@ -23,6 +23,9 @@
     width:100%;
     
   }
+  div {
+    font-family: 'Raleway', sans-serif;
+  }
 
   /* slide-main moves compontnet to the right when nav bar opens */
   
