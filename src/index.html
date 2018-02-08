@@ -18,8 +18,8 @@
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCadVMsfN6BzSfAn6dkiGyo03tyTNm1rCI"></script>
 </body>
-
 
 <!-- script code for nave menu -->
 <script>
@@ -33,17 +33,20 @@
     document.getElementById('main').style.marginLeft = "0px";
   }
 
-var i = 0;
-var txt = 'Lorem ipsum typing effect!'; /* The text */
-var speed = 50; /* The speed/duration of the effect in milliseconds */
+  var i = 0;
+  var txt = 'Lorem ipsum typing effect!';
+  /* The text */
+  var speed = 50;
 
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
+  /* The speed/duration of the effect in milliseconds */
+
+  function typeWriter() {
+    if (i < txt.length) {
+      document.getElementById("demo").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
   }
-}
 </script>
 
 </html>
