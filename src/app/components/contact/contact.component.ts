@@ -9,7 +9,6 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Message} from '../../logic/Message';
 import {MessageService} from '../../logic/MessageService';
-import {MatSnackBar} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {text} from '@angular/core/src/render3/instructions';
 declare var grecaptcha: any;
@@ -34,7 +33,6 @@ export class ContactComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   message: Message;
   dialogText: string;
-  sampleString: string;
 
   // tracks the value and validation status of the email input field in the form
   emailFormControl = new FormControl('', [
@@ -64,7 +62,6 @@ export class ContactComponent implements OnInit {
 
   constructor(fb: FormBuilder,
               private messageService: MessageService,
-              private snackBar: MatSnackBar,
               public dialog: MatDialog) {
     this.options = fb.group({
       hideRequired: false,
@@ -75,8 +72,6 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.message = new Message();
     this.initMap();
-
-    this.sampleString = "kurwa";
   }
 
   initMap(){

@@ -88,3 +88,7 @@
   height: 100% !important;
   background-color: grey;
 }
+
+img.front {
+  width: 100%;
+}
