@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('/assets/fonts/raleway_thin-webfont.ttf')  format('truetype');
+}
+
 .example-container {
   padding: 3%;
   display: flex;
@@ -91,4 +96,10 @@
 
 img.front {
   width: 100%;
+  height: auto;
+}
+
+.address{
+  margin-top: 20px;
+  text-align: left;
 }

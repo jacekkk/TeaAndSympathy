@@ -1,34 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes} from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
-import { environment } from '../environments/environment';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { DialogContactForm } from '../app/components/contact/contact.component';
+import {environment} from '../environments/environment';
+import {AngularFirestore} from 'angularfire2/firestore';
+import {DialogContactForm} from '../app/components/contact/contact.component';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { LandingComponent } from './components/landing/landing.component';
-import { FurnitureComponent } from './components/furniture/furniture.component';
-import { HomewareComponent } from './components/homeware/homeware.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { CafeComponent } from './components/cafe/cafe.component';
-import { SuppliersComponent } from './components/suppliers/suppliers.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { HeaderComponent } from './components/header/header.component';
+import {AppComponent} from './app.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {LandingComponent} from './components/landing/landing.component';
+import {FurnitureComponent} from './components/furniture/furniture.component';
+import {HomewareComponent} from './components/homeware/homeware.component';
+import {ContactComponent} from './components/contact/contact.component';
+import {CafeComponent} from './components/cafe/cafe.component';
+import {SuppliersComponent} from './components/suppliers/suppliers.component';
+import {MenuComponent} from './components/menu/menu.component';
+import {HeaderComponent} from './components/header/header.component';
 
-import { MatFormFieldModule } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
-import { MessageService } from './logic/MessageService';
+import {MessageService} from './logic/MessageService';
+
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 
 import {
   MatAutocompleteModule,
@@ -63,7 +66,6 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
-
 
 
 const appRoutes: Routes = [
@@ -134,10 +136,15 @@ const appRoutes: Routes = [
     MatTooltipModule,
     MatStepperModule,
     HttpClientModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
   entryComponents: [DialogContactForm]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+    matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/mdi.svg'));
+  }
+}

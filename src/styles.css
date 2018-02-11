@@ -3,6 +3,23 @@
 
 /* gets bootstrap for npm module */
 
+button.mat-menu-item {
+  line-height: 24px !important;
+}
+a.mat-menu-item > mat-icon {
+  margin-bottom: 14px;
+}
+
+.mat-icon{
+  font-size:36px !important;
+}
+
+/*.mat-icon svg {
+  font-size:48px !important;
+  height: 48px !important;
+  width: 48px !important;
+}*/
+
 .bg {
   height: 95vh;
   min-height: 300px;
