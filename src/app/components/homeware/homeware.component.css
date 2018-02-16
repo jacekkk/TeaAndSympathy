@@ -11,17 +11,25 @@
   background-size: cover;
 }
 
-mat-card{
-  width: 400px;
-  height: 400px;
-}
-
 li{
   list-style-type: none;
 }
 
+/*mat-card{
+  display: inline-block;
+}*/
+
+/*mat-card img{
+  object-fit: cover; !*this makes de image in src fit to the size of specified below*!
+  width: auto; !* Here you can use wherever you want to specify the width and also the height of the <img>*!
+  height: auto;
+}*/
+
+mat-card{
+  max-width: 400px;
+}
+
 mat-card img{
-  object-fit: cover; /*this makes de image in src fit to the size of specified below*/
-  width: 300px; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-  height: 300px;
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }

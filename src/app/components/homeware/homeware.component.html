@@ -1,4 +1,4 @@
-<div class="items">
+<!--<div class="items">
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Some painting</mat-card-title>
@@ -17,9 +17,9 @@
       <button mat-button>SHARE</button>
     </mat-card-actions>
   </mat-card>
-</div>
+</div>-->
 
-<div>
+<div class="items">
   <ul class="u-listReset">
     <li *ngFor="let homewareItem of homewareItems">
       <mat-card>
@@ -36,4 +36,25 @@
 </div>
 
 
+<div class="album py-5 bg-light" *ngFor="let homewareItem of homewareItems">
+  <div class="container">
 
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img src="{{ homewareItem.fields.photos[0].fields.file.url }}">
+          <div class="card-body">
+            <p class="card-text">{{ homewareItem.fields.description }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
