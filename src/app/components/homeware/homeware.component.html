@@ -1,3 +1,39 @@
-<p>
-  homeware works!
-</p>
+<div class="items">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Some painting</mat-card-title>
+      <mat-card-subtitle>from some guy</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div>
+  <ul class="u-listReset">
+    <li *ngFor="let homewareItem of homewareItems">
+      <mat-card>
+        <mat-card-title>{{ homewareItem.fields.title }}</mat-card-title>
+        <img mat-card-image src="{{ homewareItem.fields.photos[0].fields.file.url }}">
+        <mat-card-content>
+          <p>
+            {{ homewareItem.fields.description }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </li>
+  </ul>
+</div>
+
+
+

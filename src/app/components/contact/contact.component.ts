@@ -11,6 +11,8 @@ import {Message} from '../../logic/Message';
 import {MessageService} from '../../logic/MessageService';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {text} from '@angular/core/src/render3/instructions';
+import * as firebase from 'firebase/app';
+import TIMESTAMP = firebase.database.ServerValue.TIMESTAMP;
 declare var grecaptcha: any;
 declare var google: any;
 
@@ -112,15 +114,21 @@ export class ContactComponent implements OnInit {
       console.log('Recaptcha failed: ' + grecaptcha.getResponse());
       this.dialogText = 'Failed to send, please check your input and try again.';
     }
-    else if (this.message.subject == null || this.message.name == null || this.message.email == null
-      && this.message.body) {
+    else if (this.message.subject.length == 0 || this.message.name.length == 0 || this.message.email.length == 0 || this.message.body.length == 0) {
       this.dialogText = 'Failed to send, please check your input and try again.';
     }
     else {
       this.messageService.insertMessage(this.message);
-      this.resetForm();
 
       this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
+
+      this.message.subject = '';
+      this.message.name = '';
+      this.message.email = '';
+      this.message.phone = null;
+      this.message.body = '';
+
+      this.resetForm();
     }
 
     // open dialog after user has attempted to send the form
@@ -136,7 +144,6 @@ export class ContactComponent implements OnInit {
     });
   }
 }
-
 
 // dialog component
 @Component({

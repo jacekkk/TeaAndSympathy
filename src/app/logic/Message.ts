@@ -1,11 +1,11 @@
 export class Message {
 
   // Properties
-  subject: string = null;
-  name: string = null;
-  email: string = null;
+  subject: string = '';
+  name: string = '';
+  email: string = '';
   phone: number = null;
-  body: string = null;
+  body: string = '';
 
   constructor() {
   }

@@ -9,6 +9,7 @@ import 'hammerjs';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {DialogContactForm} from '../app/components/contact/contact.component';
+import { ContentfulService } from './contentful.service';
 
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
@@ -139,7 +140,7 @@ const appRoutes: Routes = [
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
   entryComponents: [DialogContactForm]
 })
