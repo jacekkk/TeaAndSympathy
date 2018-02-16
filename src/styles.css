@@ -3,6 +3,11 @@
 
 /* gets bootstrap for npm module */
 
+@font-face {
+  font-family: 'Raleway';
+  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
+}
+
 button.mat-menu-item {
   line-height: 24px !important;
 }

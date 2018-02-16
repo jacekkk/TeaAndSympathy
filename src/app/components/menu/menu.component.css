@@ -4,6 +4,7 @@
 }
 
 
+
 #heading {
 
     text-align: center;
@@ -79,4 +80,9 @@
       flex: 1;
     }
   }
+
+  div {
+    font-family: 'Raleway', sans-serif;
+  }
+  
 
