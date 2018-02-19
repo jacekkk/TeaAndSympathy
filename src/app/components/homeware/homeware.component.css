@@ -1,32 +1,11 @@
-.items{
-  padding: 20px;
-  flex-wrap:wrap;
-  display: inline-block;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
-/*mat-card{
-  display: inline-block;
-}*/
-
-/*mat-card img{
-  object-fit: cover; !*this makes de image in src fit to the size of specified below*!
-  width: auto; !* Here you can use wherever you want to specify the width and also the height of the <img>*!
-  height: auto;
-}*/
-
 mat-card{
   margin-top: 20px;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 mat-card img{
   object-fit: cover;
   background-size: cover;
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 400px;
+  max-height: 400px;
 }

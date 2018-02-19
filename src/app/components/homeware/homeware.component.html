@@ -1,24 +1,3 @@
-<!--<div class="items">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Some painting</mat-card-title>
-      <mat-card-subtitle>from some guy</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</div>-->
-
 <div class="container-fluid">
   <div class="row justify-content-md-left">
     <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let homewareItem of homewareItems">
@@ -34,41 +13,3 @@
     </div>
   </div>
 </div>
-
-<!--<div class="items">
-  <mat-card *ngFor="let homewareItem of homewareItems">
-    <mat-card-title>{{ homewareItem.fields.title }}</mat-card-title>
-    <img mat-card-image src="{{ homewareItem.fields.photos[0].fields.file.url }}">
-    <mat-card-content>
-      <p>
-        {{ homewareItem.fields.description }}
-      </p>
-    </mat-card-content>
-  </mat-card>
-</div>-->
-
-
-<!--
-<div class="album py-5 bg-light" *ngFor="let homewareItem of homewareItems">
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-          <img src="{{ homewareItem.fields.photos[0].fields.file.url }}">
-          <div class="card-body">
-            <p class="card-text">{{ homewareItem.fields.description }}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
