@@ -1,18 +1,12 @@
 .items{
   padding: 20px;
-}
-
-.example-card {
-  max-width: 400px;
+  flex-wrap:wrap;
+  display: inline-block;
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
-}
-
-li{
-  list-style-type: none;
 }
 
 /*mat-card{
@@ -26,10 +20,13 @@ li{
 }*/
 
 mat-card{
-  max-width: 400px;
+  margin-top: 20px;
+  max-width: 300px;
 }
 
 mat-card img{
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  object-fit: cover;
   background-size: cover;
+  max-width: 300px;
+  max-height: 300px;
 }

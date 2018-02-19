@@ -33,6 +33,7 @@ import {MessageService} from './logic/MessageService';
 
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
   MatAutocompleteModule,
@@ -138,7 +139,8 @@ const appRoutes: Routes = [
     MatStepperModule,
     HttpClientModule,
     MatIconModule,
-    AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule
+    AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule,
+    FlexLayoutModule
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
