@@ -15,7 +15,7 @@
 section.cta {
     position: relative;
     height:100vh;
-    padding: 250px 0;
+    padding: 25px 0;
     background-image:url('/assets/img/cafephoto.jpg');
     background-position: center;
     -webkit-background-size: cover;
@@ -49,8 +49,10 @@ section.cta .overlay {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(125, 125, 125, 0.5)
+    background-color: rgba(135, 135, 135, 0.305)
 }
+
+
 
 .text-primary {
   color: #fdcc52
@@ -94,6 +96,7 @@ section.cta .overlay {
 }
 
 .masthead .intro-text {
+  margin-top: 80px;
   padding-top: 50px;
   padding-bottom: 100px
 }

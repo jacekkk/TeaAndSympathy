@@ -14,7 +14,7 @@
     -o-transition: all .4s ease 0s;
     transition: all .4s ease 0s;
     transform: translateX(250px);
-    background:rgba(38, 74, 94, 0.956);
+    background:rgba(63, 84, 94, 0.956);
     border-left: 1px solid rgba(255, 255, 255, .1)
 }
 
@@ -97,7 +97,7 @@
 }
 
 .navbar {
-  background-color: #041027c1;
+  background-color: #18253cc1;
   overflow: hidden;
   height: 10vh;
 }
