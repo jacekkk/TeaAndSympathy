@@ -15,7 +15,7 @@ export class ContentfulService {
   private cdaClient = createClient({
     space: CONFIG.space,
     accessToken: CONFIG.accessToken
-  });
+});
 
   constructor() { }
 
