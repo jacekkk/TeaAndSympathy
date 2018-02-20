@@ -4,12 +4,14 @@
     <article>
       <p>{{ homewareItem.fields.title}}</p>
       <figure>
-        <img src= "{{ homewareItem.fields.photos[0].fields.file.url }}"alt="image-1">
+        <img  *ngFor="let photo of homewareItem.fields.photos"src= "{{ photo.fields.file.url }}">
         <figcaption>{{ homewareItem.fields.description }}</figcaption>
       </figure>
     </article>
-  </a>
+  </a>  
 </main>
+
+
 
 
 <!-- <div class="masonry">
