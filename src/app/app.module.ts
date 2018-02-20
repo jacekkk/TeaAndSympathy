@@ -9,6 +9,7 @@ import 'hammerjs';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {DialogContactForm} from '../app/components/contact/contact.component';
+import {DialogHomewareProduct} from '../app/components/homeware/homeware.component';
 import { ContentfulService } from './contentful.service';
 
 import {AppComponent} from './app.component';
@@ -96,7 +97,8 @@ const appRoutes: Routes = [
     MenuComponent,
     HeaderComponent,
     MenuComponent,
-    DialogContactForm
+    DialogContactForm,
+    DialogHomewareProduct
   ],
   imports: [
     BrowserModule,
@@ -146,7 +148,7 @@ const appRoutes: Routes = [
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogContactForm]
+  entryComponents: [DialogContactForm, DialogHomewareProduct]
 })
 export class AppModule {
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {

@@ -13,6 +13,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {text} from '@angular/core/src/render3/instructions';
 import * as firebase from 'firebase/app';
 import TIMESTAMP = firebase.database.ServerValue.TIMESTAMP;
+
 declare var grecaptcha: any;
 declare var google: any;
 
@@ -76,7 +77,7 @@ export class ContactComponent implements OnInit {
     this.initMap();
   }
 
-  initMap(){
+  initMap() {
     const cafeLocation = {lat: 55.932594, lng: -3.228151};
 
     let mapProp = {
@@ -84,7 +85,7 @@ export class ContactComponent implements OnInit {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    let map = new google.maps.Map(document.getElementById("map"), mapProp);
+    let map = new google.maps.Map(document.getElementById('map'), mapProp);
 
     const marker = new google.maps.Marker({
       position: cafeLocation,
@@ -137,7 +138,7 @@ export class ContactComponent implements OnInit {
     });
 
     // scale the dialog automatically
-    dialogRef.updateSize('auto', 'auto');
+    dialogRef.updateSize('100px', '100px');
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

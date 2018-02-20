@@ -1,10 +1,10 @@
-
 <main>
-  <a href="#" title="Post 1"  *ngFor="let homewareItem of homewareItems">
+  <a title="Post 1" *ngFor="let homewareItem of homewareItems">
     <article>
       <p>{{ homewareItem.fields.title }}</p>
       <figure>
-        <img *ngFor="let photo of homewareItem.fields.photos" src= "{{ photo.fields.file.url }}">
+        <img *ngFor="let photo of homewareItem.fields.photos" src="{{ photo.fields.file.url }}"
+             (click)="onCardClicked()">
         <figcaption>{{ homewareItem.fields.description }}</figcaption>
       </figure>
     </article>
