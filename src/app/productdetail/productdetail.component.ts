@@ -10,8 +10,8 @@ import { Entry } from 'contentful';
   styleUrls: ['./productdetail.component.css']
 })
 export class ProductdetailComponent implements OnInit {
-  
-  homwareItem: Entry<any>;
+
+  homewareItem: Entry<any>;
 
   constructor(
     private ContentfulService: ContentfulService,
@@ -21,7 +21,7 @@ export class ProductdetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
     .switchMap((params: ParamMap) => this.ContentfulService.getHomewareItem(params.get('slug')))
-    .subscribe(homware => this.homwareItem = homware);
+    .subscribe(homeware => this.homewareItem = homeware);
   }
 
 }
