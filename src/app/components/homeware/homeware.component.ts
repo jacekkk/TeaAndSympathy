@@ -52,6 +52,10 @@ export class DialogHomewareProduct {
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
+  ngOnInit(){
+    console.log("on init dialog");
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
   }

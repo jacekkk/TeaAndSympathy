@@ -1,20 +1,13 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Message} from '../../logic/Message';
 import {MessageService} from '../../logic/MessageService';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {text} from '@angular/core/src/render3/instructions';
 import * as firebase from 'firebase/app';
-import TIMESTAMP = firebase.database.ServerValue.TIMESTAMP;
+import {ReCaptchaComponent} from 'angular2-recaptcha';
 
-declare var grecaptcha: any;
 declare var google: any;
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -36,6 +29,9 @@ export class ContactComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   message: Message;
   dialogText: string;
+
+  // obtain reference to recaptcha element from template file
+  @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
 
   // tracks the value and validation status of the email input field in the form
   emailFormControl = new FormControl('', [
@@ -103,16 +99,20 @@ export class ContactComponent implements OnInit {
     this.phoneFormControl.setErrors(null);
     this.messageFormControl.reset();
     this.messageFormControl.setErrors(null);
-    grecaptcha.reset();
+
+    this.captcha.reset();
   }
 
   // handles user's attempt to submit the form once he clicks "Send" button
   onSend() {
     console.log(this.message);
 
+    let token = this.captcha.getResponse();
+    console.log("RESPONSE TOKEN: " + token);
+
     // check if captcha validation was successful
-    if (grecaptcha.getResponse() === '') {
-      console.log('Recaptcha failed: ' + grecaptcha.getResponse());
+    if (this.captcha.getResponse() === '') {
+      console.log('Recaptcha failed: ' + this.captcha.getResponse());
       this.dialogText = 'Failed to send, please check your input and try again.';
     }
     else if (this.message.subject.length == 0 || this.message.name.length == 0 || this.message.email.length == 0 || this.message.body.length == 0) {
@@ -138,7 +138,7 @@ export class ContactComponent implements OnInit {
     });
 
     // scale the dialog automatically
-    dialogRef.updateSize('100px', '100px');
+    dialogRef.updateSize('auto', 'auto');
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

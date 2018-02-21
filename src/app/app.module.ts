@@ -36,6 +36,8 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { ReCaptchaModule } from 'angular2-recaptcha';
+
 
 
 import {
@@ -144,7 +146,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReCaptchaModule
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
