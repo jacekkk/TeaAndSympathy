@@ -1,26 +1,14 @@
 <main>
   <a title="Post 1" *ngFor="let homewareItem of homewareItems">
     <article>
-       
+
       <figure>
        <img mat-card-image src="{{ homewareItem.fields.photos[0].fields.file.url }}">
         <figcaption>{{ homewareItem.fields.description}}</figcaption>
       </figure>
-      
+
           <button [routerLink]="['/homeware', homewareItem.fields.slug]">View details</button>
-     
+
     </article>
   </a>
 </main>
-
-
-<!-- <div class="masonry">
-    <div class = "item" *ngFor="let homewareItem of homewareItems">
-      
-    </div>
- 
-</div>
-
-<mat-card-title>{{ homewareItem.fields.title }}</mat-card-title>
-<img mat-card-image src="{{ homewareItem.fields.photos[0].fields.file.url }}">
-<img *ngFor="let photo of homewareItem.fields.photos" src="{{ photo.fields.file.url }}"> -->

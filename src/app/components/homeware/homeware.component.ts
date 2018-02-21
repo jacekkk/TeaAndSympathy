@@ -26,7 +26,7 @@ export class HomewareComponent implements OnInit {
   }
 
   onCardClicked() {
-    console.log("clicked!");
+    console.log('clicked!');
     this.dialogText = 'Fuckyou Joe!!';
 
     // open dialog after user has attempted to send the form
@@ -43,18 +43,18 @@ export class HomewareComponent implements OnInit {
   }
 }
 
-  // dialog component
-  @Component({
-    selector: 'dialog-homeware-product',
-    templateUrl: 'dialog-homeware-product.html',
-  })
-  export class DialogHomewareProduct {
+// dialog component
+@Component({
+  selector: 'dialog-homeware-product',
+  templateUrl: 'dialog-homeware-product.html',
+})
+export class DialogHomewareProduct {
   constructor(public dialogRef: MatDialogRef<DialogHomewareProduct>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
-  ngOnInit(){
-    console.log("on init dialog");
+  ngOnInit() {
+    console.log('on init dialog');
   }
 
   onNoClick(): void {
