@@ -35,7 +35,7 @@ main a[title]{
 }
 
 main:hover a[title]:not(:hover){
-  /* opacity: .6; */
+  opacity: .6;
 }
 
 a[title]:hover{
