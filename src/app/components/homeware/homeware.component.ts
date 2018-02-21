@@ -22,6 +22,7 @@ export class HomewareComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getHomewareItems()
       .then(homeware => this.homewareItems = homeware);
+
   }
 
   onCardClicked() {
@@ -42,12 +43,12 @@ export class HomewareComponent implements OnInit {
   }
 }
 
-// dialog component
-@Component({
-  selector: 'dialog-homeware-product',
-  templateUrl: 'dialog-homeware-product.html',
-})
-export class DialogHomewareProduct {
+  // dialog component
+  @Component({
+    selector: 'dialog-homeware-product',
+    templateUrl: 'dialog-homeware-product.html',
+  })
+  export class DialogHomewareProduct {
   constructor(public dialogRef: MatDialogRef<DialogHomewareProduct>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
