@@ -13,11 +13,11 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class HomewareComponent implements OnInit {
   // define private class properties
   private homewareItems: Entry<any>[] = [];
+
   dialogText: string;
 
   constructor(private contentfulService: ContentfulService,
-              public dialog: MatDialog) {
-  }
+              public dialog: MatDialog) {}
 
   ngOnInit() {
     this.contentfulService.getHomewareItems()

@@ -72,7 +72,7 @@
   color: #fff;
 }
 
-.g-recaptcha {
+.grecaptcha{
   width: desired_width;
   overflow: hidden;
 }

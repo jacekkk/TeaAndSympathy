@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {DialogHomewareProduct} from '../homeware/homeware.component';
+import {Entry} from 'contentful';
+import {ContentfulService} from '../../contentful.service';
 
 @Component({
   selector: 'furniture',
@@ -8,16 +10,22 @@ import {DialogHomewareProduct} from '../homeware/homeware.component';
   styleUrls: ['./furniture.component.css']
 })
 export class FurnitureComponent implements OnInit {
+  // define private class properties
+  private furnitureItems: Entry<any>[] = [];
+
   dialogText: string;
 
-  constructor(public dialog: MatDialog) { }
-
+  constructor(private contentfulService: ContentfulService,
+              public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.dialogText = "CIPKAA";
+    this.dialogText = 'CIPKAA';
+
+    this.contentfulService.getFurnitureItems()
+      .then(furniture => this.furnitureItems = furniture);
   }
 
-  onClicked(){
+  onClicked() {
     // open dialog after user has attempted to send the form
     let dialogRef = this.dialog.open(DialogHomewareProduct, {
       data: {text: this.dialogText}

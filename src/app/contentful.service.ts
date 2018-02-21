@@ -6,7 +6,8 @@ const CONFIG = {
   accessToken: '28b0c2be8f57917c4f46cdcb75fc7c32ec1b7f337ee084f492d5b2b0f95a9482',
 
   contentTypeIds: {
-    homeware: 'homeware'
+    homeware: 'homeware',
+    furniture: 'furniture'
   }
 };
 
@@ -22,6 +23,13 @@ export class ContentfulService {
   getHomewareItems(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.homeware
+    }, query))
+      .then(res => res.items);
+  }
+
+  getFurnitureItems(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.furniture
     }, query))
       .then(res => res.items);
   }
