@@ -1,5 +1,7 @@
 <div >
-  <mat-dialog-content>{{data.text}}</mat-dialog-content>
+  <mat-dialog-content>{{data.title}}</mat-dialog-content>
+  <img src="{{ data.photos[0].fields.file.url }}">
+  <mat-dialog-content>{{data.description}}</mat-dialog-content>
   <mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>
   </mat-dialog-actions>

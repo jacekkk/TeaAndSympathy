@@ -8,7 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from 'angularfire2/firestore';
-import {DialogContactForm} from '../app/components/contact/contact.component';
+import {DialogContactForm} from './components/contact/contact.component';
+import {DialogHomewareProduct} from './components/homeware/homeware.component';
 import { ContentfulService } from './contentful.service';
 
 import {AppComponent} from './app.component';
@@ -23,8 +24,6 @@ import {SuppliersComponent} from './components/suppliers/suppliers.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {HeaderComponent} from './components/header/header.component';
 import {ProductdetailComponent} from './productdetail/productdetail.component';
-
-
 
 import {MatFormFieldModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -105,8 +104,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     MenuComponent,
     DialogContactForm,
+    DialogHomewareProduct,
     ProductdetailComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -153,11 +153,11 @@ const appRoutes: Routes = [
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule,
     FlexLayoutModule,
-    ReCaptchaModule
+    ReCaptchaModule,
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogContactForm]
+  entryComponents: [DialogContactForm, DialogHomewareProduct]
 })
 export class AppModule {
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {

@@ -6,7 +6,7 @@
         <figcaption>{{ homewareItem.fields.description}}</figcaption>
       </figure>
 
-          <button [routerLink]="['/homeware', homewareItem.fields.slug]">View details</button>
+          <button (click)="onCardClicked(homewareItem)">View details</button>
 
     </article>
   </a>

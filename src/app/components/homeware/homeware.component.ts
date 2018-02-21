@@ -17,7 +17,8 @@ export class HomewareComponent implements OnInit {
   dialogText: string;
 
   constructor(private contentfulService: ContentfulService,
-              public dialog: MatDialog) {}
+              public dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.contentfulService.getHomewareItems()
@@ -25,13 +26,17 @@ export class HomewareComponent implements OnInit {
 
   }
 
-  onCardClicked() {
-    console.log('clicked!');
+  onCardClicked(homewareItem: Entry<any>) {
+    console.log(homewareItem.fields);
     this.dialogText = 'Fuckyou Joe!!';
 
     // open dialog after user has attempted to send the form
     let dialogRef = this.dialog.open(DialogHomewareProduct, {
-      data: {text: this.dialogText}
+      data: {
+        title: homewareItem.fields.title,
+        photos: homewareItem.fields.photos,
+        description: homewareItem.fields.description,
+      }
     });
 
     // scale the dialog automatically
