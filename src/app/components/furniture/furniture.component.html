@@ -3,12 +3,15 @@
     <main>
       <a title="Post 1" *ngFor="let furnitureItem of furnitureItems">
         <article>
-          <p>{{ furnitureItem.fields.title }}</p>
+
           <figure>
-            <img *ngFor="let photo of furnitureItem.fields.photos" src="{{ photo.fields.file.url }}"
-                 (click)="onClicked()">
-            <figcaption>{{ furnitureItem.fields.description }}</figcaption>
+            <img src="{{ furnitureItem.fields.photos[0].fields.file.url }}">
+            <figcaption>{{ furnitureItem.fields.description}}</figcaption>
+            <figcaption>{{ furnitureItem.fields.price}}</figcaption>
           </figure>
+
+          <button (click)="onCardClicked(furnitureItem)">View details</button>
+
         </article>
       </a>
     </main>

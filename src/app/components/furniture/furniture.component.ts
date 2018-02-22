@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {DialogHomewareProduct} from '../homeware/homeware.component';
 import {Entry} from 'contentful';
 import {ContentfulService} from '../../contentful.service';
 
@@ -13,27 +12,49 @@ export class FurnitureComponent implements OnInit {
   // define private class properties
   private furnitureItems: Entry<any>[] = [];
 
-  dialogText: string;
-
   constructor(private contentfulService: ContentfulService,
-              public dialog: MatDialog) {}
+              public dialog: MatDialog) {
+  }
 
   ngOnInit() {
-    this.dialogText = 'CIPKAA';
-
     this.contentfulService.getFurnitureItems()
       .then(furniture => this.furnitureItems = furniture);
   }
 
-  onClicked() {
+  onCardClicked(furnitureItem: Entry<any>) {
+    console.log(furnitureItem.fields);
+
     // open dialog after user has attempted to send the form
-    let dialogRef = this.dialog.open(DialogHomewareProduct, {
-      data: {text: this.dialogText}
+    let dialogRef = this.dialog.open(DialogFurnitureProduct, {
+      data: {
+        title: furnitureItem.fields.title,
+        photos: furnitureItem.fields.photos,
+        price: furnitureItem.fields.price,
+        description: furnitureItem.fields.description
+      }
     });
 
     // scale the dialog automatically
-    dialogRef.updateSize('auto', 'auto');
+    // dialogRef.updateSize('auto', 'auto');
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+}
+
+// dialog component
+@Component({
+  selector: 'dialog-furniture-product',
+  templateUrl: 'dialog-furniture-product.html',
+  styleUrls: ['./dialog-furniture-product.css']
+})
+export class DialogFurnitureProduct {
+  constructor(public dialogRef: MatDialogRef<DialogFurnitureProduct>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
-
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
