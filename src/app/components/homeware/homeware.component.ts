@@ -1,8 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ContentfulService} from '../../contentful.service';
-import {MatButtonModule} from '@angular/material/button';
 import {Entry} from 'contentful';
-import {forEach} from '@angular/router/src/utils/collection';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
@@ -13,8 +11,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class HomewareComponent implements OnInit {
   // define private class properties
   private homewareItems: Entry<any>[] = [];
-
-  dialogText: string;
 
   constructor(private contentfulService: ContentfulService,
               public dialog: MatDialog) {
@@ -28,19 +24,19 @@ export class HomewareComponent implements OnInit {
 
   onCardClicked(homewareItem: Entry<any>) {
     console.log(homewareItem.fields);
-    this.dialogText = 'Fuckyou Joe!!';
 
     // open dialog after user has attempted to send the form
     let dialogRef = this.dialog.open(DialogHomewareProduct, {
       data: {
         title: homewareItem.fields.title,
         photos: homewareItem.fields.photos,
-        description: homewareItem.fields.description,
+        price: homewareItem.fields.price,
+        description: homewareItem.fields.description
       }
     });
 
     // scale the dialog automatically
-    dialogRef.updateSize('auto', 'auto');
+    // dialogRef.updateSize('auto', 'auto');
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -56,10 +52,6 @@ export class HomewareComponent implements OnInit {
 export class DialogHomewareProduct {
   constructor(public dialogRef: MatDialogRef<DialogHomewareProduct>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-  }
-
-  ngOnInit() {
-    console.log('on init dialog');
   }
 
   onNoClick(): void {

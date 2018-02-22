@@ -10,6 +10,7 @@ import {environment} from '../environments/environment';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {DialogContactForm} from './components/contact/contact.component';
 import {DialogHomewareProduct} from './components/homeware/homeware.component';
+import {DialogFurnitureProduct} from './components/furniture/furniture.component';
 import { ContentfulService } from './contentful.service';
 
 import {AppComponent} from './app.component';
@@ -105,6 +106,7 @@ const appRoutes: Routes = [
     MenuComponent,
     DialogContactForm,
     DialogHomewareProduct,
+    DialogFurnitureProduct,
     ProductdetailComponent
 
   ],
@@ -157,7 +159,7 @@ const appRoutes: Routes = [
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogContactForm, DialogHomewareProduct]
+  entryComponents: [DialogContactForm, DialogHomewareProduct, DialogFurnitureProduct]
 })
 export class AppModule {
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
