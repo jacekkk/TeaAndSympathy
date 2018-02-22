@@ -46,7 +46,8 @@ export class FurnitureComponent implements OnInit {
 // dialog component
 @Component({
   selector: 'dialog-furniture-product',
-  templateUrl: 'dialog-furniture-product.html'
+  templateUrl: 'dialog-furniture-product.html',
+  styleUrls: ['./dialog-furniture-product.css']
 })
 export class DialogFurnitureProduct {
   constructor(public dialogRef: MatDialogRef<DialogFurnitureProduct>,

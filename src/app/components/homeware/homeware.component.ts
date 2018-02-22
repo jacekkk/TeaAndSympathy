@@ -48,6 +48,7 @@ export class HomewareComponent implements OnInit {
 @Component({
   selector: 'dialog-homeware-product',
   templateUrl: 'dialog-homeware-product.html',
+  styleUrls: ['./dialog-homeware-product.css']
 })
 export class DialogHomewareProduct {
   constructor(public dialogRef: MatDialogRef<DialogHomewareProduct>,
