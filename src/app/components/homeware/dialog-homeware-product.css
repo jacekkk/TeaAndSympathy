@@ -1,0 +1,16 @@
+img{
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+
+/deep/.mat-dialog-container {
+  background: transparent;
+  box-shadow: none;
+}
+
+*{
+  outline-style: none;
+}

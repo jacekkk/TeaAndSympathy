@@ -1,9 +1,7 @@
-<div style="max-width: 90vw; max-height: 90vh;">
-  <mat-dialog-content>{{data.title}}</mat-dialog-content>
-  <img src="{{ data.photos[0].fields.file.url }}">
-  <mat-dialog-content>{{data.description}}</mat-dialog-content>
-  <mat-dialog-content>{{data.price}}</mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
-  </mat-dialog-actions>
-</div>
+<mat-dialog-content>
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let photo of data.photos">
+      <img src="{{ photo.fields.file.url }}" alt="Item gallery">
+    </ng-template>
+  </ngb-carousel>
+</mat-dialog-content>
