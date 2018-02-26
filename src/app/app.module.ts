@@ -77,8 +77,6 @@ import {
 } from '@angular/material';
 
 
-
-
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
   {path: 'cafe', component: CafeComponent},

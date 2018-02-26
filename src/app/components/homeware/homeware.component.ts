@@ -36,7 +36,7 @@ export class HomewareComponent implements OnInit {
     });
 
     // scale the dialog automatically
-    // dialogRef.updateSize('auto', 'auto');
+    dialogRef.updateSize('auto', 'auto');
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

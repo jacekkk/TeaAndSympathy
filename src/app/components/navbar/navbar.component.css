@@ -1,66 +1,98 @@
-@font-face {
-  font-family: 'Raleway';
-  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
-}
-  #sidebar-wrapper {
-    position: fixed;
-    z-index: 2;
-    right: 0;
-    width: 250px;
-    height: 100%;
-    -webkit-transition: all .4s ease 0s;
-    -moz-transition: all .4s ease 0s;
-    -ms-transition: all .4s ease 0s;
-    -o-transition: all .4s ease 0s;
-    transition: all .4s ease 0s;
-    transform: translateX(250px);
-    background:rgba(63, 84, 94, 0.956);
-    border-left: 1px solid rgba(255, 255, 255, .1)
-}
-
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none
-}
-
-.sidebar-nav li.sidebar-nav-item a {
+#nav {
+    background: transparent; 
     display: block;
-    text-decoration: none;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    transition: all ease .5s;
+  }
+  
+  
+  #nav.shrink {
+    height: 70px;
+    transition: all ease .5s;
+    background: #475665;
+  }
+  
+  #nav.shrink #logo {
+    padding: 10px;
+    transition: all ease .5s;
+  }
+
+  #mainNav {
+    background-color: #22384e;
+    /* height: 70px; */
+}
+
+#mainNav .navbar-toggler {
+    font-size: 12px;
+    right: 0;
+    padding: 13px;
+    text-transform: uppercase;
     color: #fff;
-    padding: 15px
+    border: 0;
+    background-color: #fed136;
+    font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
-.sidebar-nav li a:hover {
-    text-decoration: none;
+#mainNav .navbar-brand {
+    color: #fed136;
+    font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+    background-image:url('/assets/img/logocream2.png');
+}
+
+#mainNav .navbar-brand.active,
+#mainNav .navbar-brand:active,
+#mainNav .navbar-brand:focus,
+#mainNav .navbar-brand:hover {
+    color: #fec503
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 90%;
+    font-weight: 400;
+    padding: .75em 0;
+    letter-spacing: 1px;
     color: #fff;
-    background: rgba(255, 255, 255, .2)
+<<<<<<< HEAD
+    font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none
+#mainNav .navbar-nav .nav-item .nav-link.active,
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #fed136
 }
 
-.sidebar-nav>.sidebar-brand {
-    font-size: 1.2rem;
-    background: rgba(52, 58, 64, .1);
-    height: 80px;
-    line-height: 50px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px
+@media (min-width:992px) {
+    #mainNav {
+        padding-top: 10px;
+        padding-bottom: 25px;
+        -webkit-transition: padding-top .3s, padding-bottom .3s;
+        -moz-transition: padding-top .3s, padding-bottom .3s;
+        transition: padding-top .3s, padding-bottom .3s;
+        border: none;
+        background-color: transparent
+    }
+    #mainNav .navbar-brand {
+        font-size: 1.75em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s
+    }
+    #mainNav .navbar-nav .nav-item .nav-link {
+        padding: 1.1em 1em!important
+    }
+    #mainNav.navbar-shrink {
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: #212529
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+        font-size: 1.25em;
+        padding: 12px 0
+    }
 }
-
-.sidebar-nav>.sidebar-brand a {
-    color: #fff
-}
-
-.sidebar-nav>.sidebar-brand a:hover {
-    color: #fff;
+=======
     background: 0 0
 }
 
@@ -158,3 +190,4 @@
 li{
   list-style-type: none;
 }
+>>>>>>> b433c1e70d88696d040de55d4bd150378543392e

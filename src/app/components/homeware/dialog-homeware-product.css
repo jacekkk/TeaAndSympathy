@@ -1,0 +1,36 @@
+img{
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+/deep/.mat-dialog-container {
+  background: transparent;
+  box-shadow: none;
+}
+
+*{
+  outline-style: none;
+}
+
+mat-dialog-content{
+  padding: 0;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}
