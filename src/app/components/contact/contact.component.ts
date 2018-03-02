@@ -7,6 +7,10 @@ import {MessageService} from '../../logic/MessageService';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import * as firebase from 'firebase/app';
 import {ReCaptchaComponent} from 'angular2-recaptcha';
+import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
+import {AngularFirestore} from 'angularfire2/firestore';
+import {Observable} from 'rxjs/Observable';
+import {tap} from 'rxjs/operators';
 
 declare var google: any;
 
@@ -29,6 +33,19 @@ export class ContactComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   message: Message;
   dialogText: string;
+
+  // Main upload task
+  task: AngularFireUploadTask;
+
+  // Progress monitoring
+  percentage: Observable<number>;
+  snapshot: Observable<any>;
+
+  // URL
+  downloadURL: Observable<string>;
+
+  // State for dopzone CSS toggling
+  isHovering: boolean;
 
   // obtain reference to recaptcha element from template file
   @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
@@ -61,7 +78,9 @@ export class ContactComponent implements OnInit {
 
   constructor(fb: FormBuilder,
               private messageService: MessageService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private storage: AngularFireStorage,
+              private db: AngularFirestore) {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto',
@@ -72,6 +91,47 @@ export class ContactComponent implements OnInit {
     this.message = new Message();
     this.initMap();
   }
+
+  toggleHover(event: boolean){
+    this.isHovering = event;
+  }
+
+  startUpload(event: FileList){
+    // file object
+    const file = event.item(0);
+
+    // client-side validation
+    if(file.type.split('/')[0] !== 'image'){
+      console.error('unsupported file type :( ');
+      return;
+    }
+
+    // storage path
+    const path = `test/${new Date().getTime()}_${file.name}`;
+
+    // main upload task
+    this.task = this.storage.upload(path, file);
+
+    // upload progress monitoring
+    this.percentage = this.task.percentageChanges();
+    this.snapshot = this.task.snapshotChanges().pipe(
+      tap(snap => {
+        if (snap.bytesTransferred === snap.totalBytes) {
+          // Update firestore on completion
+          this.db.collection('photos').add( { path, size: snap.totalBytes })
+        }
+      })
+    );
+
+    // file download URL
+    this.downloadURL = this.task.downloadURL();
+  }
+
+  // determine if the upload task is active
+  isActive(snapshot){
+    return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
+  }
+
 
   initMap() {
     const cafeLocation = {lat: 55.932594, lng: -3.228151};

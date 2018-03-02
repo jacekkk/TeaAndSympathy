@@ -85,6 +85,37 @@
             </mat-form-field>
           </div>
 
+          <!--IMAGE UPLOADER-->
+          <div class="dropzone"
+               dropZone=""
+               (hovered)="toggleHover($event)"
+               (dropped)="startUpload()"
+               [class.hovering]="isHovering">
+            <h3>AngularFire Drop Zone</h3>
+            <div class="file">
+              <label class="file-label">
+                <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+                <span class="file-cta">
+            <span class="file-icon">
+              <i class="fa fa-upload"></i>
+            </span>
+            <span class="file-label">
+              or choose a file…
+            </span>
+          </span>
+              </label>
+            </div>
+          </div>
+
+          <!--UPLOAD PROGRESS-->
+          <div *ngIf="percentage | async as pct">
+            <progress class="progress is-info"
+                      [value]="pct"
+                      max="100">
+            </progress>
+            {{ pct | number }}%
+          </div>
+
           <!--CAPTCHA-->
           <br>
           <div class="grecaptcha">

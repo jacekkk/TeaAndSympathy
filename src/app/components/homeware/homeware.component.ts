@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {ContentfulService} from '../../contentful.service';
 import {Entry} from 'contentful';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'homeware',
@@ -48,11 +49,13 @@ export class HomewareComponent implements OnInit {
 @Component({
   selector: 'dialog-homeware-product',
   templateUrl: 'dialog-homeware-product.html',
-  styleUrls: ['./dialog-homeware-product.css']
+  styleUrls: ['./dialog-homeware-product.css'],
+  providers: [NgbCarouselConfig]
 })
 export class DialogHomewareProduct {
   constructor(public dialogRef: MatDialogRef<DialogHomewareProduct>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
+              @Inject(MAT_DIALOG_DATA) public data: any, config: NgbCarouselConfig) {
+    config.interval = 10000;
   }
 
   onNoClick(): void {

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Raleway';
-  src: url('/assets/fonts/raleway_thin-webfont.ttf')  format('truetype');
+  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
 }
 
 .example-container {
@@ -67,12 +67,12 @@
   }
 }
 
-.send-button{
-  background-color:	#41495C;
+.send-button {
+  background-color: #41495C;
   color: #fff;
 }
 
-.grecaptcha{
+.grecaptcha {
   width: desired_width;
   overflow: hidden;
 }
@@ -81,7 +81,7 @@
   overflow: hidden;
 }
 
-#map-container{
+#map-container {
   height: 50vh;
 }
 
@@ -99,13 +99,13 @@ img.front {
   height: auto;
 }
 
-.cafe-name{
+.cafe-name {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
 
-.info{
+.info {
   margin-top: 20px;
   text-align: left;
 }
@@ -115,7 +115,7 @@ img.front {
   margin-right: 10px;
 }
 
-.cafe-info{
+.cafe-info {
   width: auto;
   display: table;
 }
@@ -126,24 +126,45 @@ a, .cafe-details {
   padding-top: 20px;
 }
 
-td{
+td {
   padding: 10px;
 }
 
-.first{
+.first {
   padding-right: 20px;
   width: auto;
   border-bottom: 2px groove lightgrey;
 }
 
-.last{
+.last {
   padding-left: 20px;
   border-bottom: 2px groove lightgrey;
   width: available;
   text-align: right;
 }
 
-.last-bottom{
+.last-bottom {
   padding-left: 20px;
   text-align: right;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  border: 2px dashed #f16624;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+
+  &.hovering {
+  border: 2px solid #f16624;
+  color: #dadada !important;
+  }
+}
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
 }

@@ -8,6 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from 'angularfire2/firestore';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireStorageModule} from 'angularfire2/storage';
 import {DialogContactForm} from './components/contact/contact.component';
 import {DialogHomewareProduct} from './components/homeware/homeware.component';
 import {DialogFurnitureProduct} from './components/furniture/furniture.component';
@@ -39,6 +41,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ReCaptchaModule } from 'angular2-recaptcha';
+import { ImageUploadModule } from "angular2-image-upload";
 
 
 
@@ -75,6 +78,7 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { DropZoneDirective } from './drop-zone.directive';
 
 
 const appRoutes: Routes = [
@@ -105,7 +109,8 @@ const appRoutes: Routes = [
     DialogContactForm,
     DialogHomewareProduct,
     DialogFurnitureProduct,
-    ProductdetailComponent
+    ProductdetailComponent,
+    DropZoneDirective
 
   ],
   imports: [
@@ -151,9 +156,13 @@ const appRoutes: Routes = [
     MatStepperModule,
     HttpClientModule,
     MatIconModule,
-    AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
     FlexLayoutModule,
     ReCaptchaModule,
+    ImageUploadModule.forRoot()
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
