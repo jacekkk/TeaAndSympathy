@@ -24,53 +24,8 @@
 
 <!-- script code for nave menu -->
 <script>
-  ! function(e) {
-    "use strict";
-    e(".menu-toggle").click(function(a) {
-        a.preventDefault(), e("#sidebar-wrapper").toggleClass("active"), e(".menu-toggle > .fa-bars, .menu-toggle > .fa-times").toggleClass("fa-bars fa-times"), e(this).toggleClass("active")
-    }), e('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
-            var a = e(this.hash);
-            if ((a = a.length ? a : e("[name=" + this.hash.slice(1) + "]")).length) return e("html, body").animate({
-                scrollTop: a.offset().top
-            }, 1e3, "easeInOutExpo"), !1
-        }
-    }), e("#sidebar-wrapper .js-scroll-trigger").click(function() {
-        e("#sidebar-wrapper").removeClass("active"), e(".menu-toggle").removeClass("active"), e(".menu-toggle > .fa-bars, .menu-toggle > .fa-times").toggleClass("fa-bars fa-times")
-    }), e(document).scroll(function() {
-        e(this).scrollTop() > 100 ? e(".scroll-to-top").fadeIn() : e(".scroll-to-top").fadeOut()
-    })
-}(jQuery);
-
-  function openSlideMenu() {
-    document.getElementById('side-menu').style.width = '250px';
-    document.getElementById('main').style.marginLeft = '250px';
-  }
-
-  function closeSlideMenu() {
-    document.getElementById('side-menu').style.width = "0px";
-    document.getElementById('main').style.marginLeft = "0px";
-  }
-
-  var i = 0;
-  var txt = 'Lorem ipsum typing effect!';
-  /* The text */
-  var speed = 50;
-
-  /* The speed/duration of the effect in milliseconds */
-
-  function typeWriter() {
-    if (i < txt.length) {
-      document.getElementById("demo").innerHTML += txt.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-    }
-  }
-
-  function myFunction() {
-    var x = document.getElementById("myP").tagName;
-    document.getElementById("demo").innerHTML = x;
-}
+ $(".button-collapse").sideNav();
 </script>
+
 
 </html>

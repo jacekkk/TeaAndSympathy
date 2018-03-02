@@ -1,7 +1,7 @@
+
 <main>
   <a title="Post 1" *ngFor="let homewareItem of homewareItems">
     <article>
-
       <figure>
         <img src="{{ homewareItem.fields.photos[0].fields.file.url }}">
         <figcaption>{{ homewareItem.fields.description}}</figcaption>
@@ -13,3 +13,4 @@
     </article>
   </a>
 </main>
+

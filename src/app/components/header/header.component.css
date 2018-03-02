@@ -1,22 +1,9 @@
- /* .container {
-    max-width: 960px;
-  } */
-  
-  .typewrite{
-  
-    color: rgb(74, 74, 74);
-    font-family: 'Raleway', sans-serif;
-    font-size: 50px;
-   
-  }  
-
-
-
+ 
 section.cta {
     position: relative;
     height:100vh;
     padding: 25px 0;
-    background-image:url('/assets/img/cafephoto.jpg');
+    background-image:url('/assets/img/fakecafe.jpeg');
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -102,6 +89,8 @@ section.cta .overlay {
 }
 
 .masthead .intro-text .intro-lead-in {
+  margin-top: 80px;
+  padding-top: 50px;
   font-size: 22px;
   font-style: italic;
   line-height: 22px;
