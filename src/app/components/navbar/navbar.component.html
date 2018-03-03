@@ -1,29 +1,42 @@
-<div class="navbar-fixed">
-  <nav >
-    <div class="nav-wrapper ">
-      <a href="#!" class="brand-logo center">Logo</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse pulse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-      <ul class="left hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
+<div class="container">
+  
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-12 text-center">
+          <span class="open-slide">
+              <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#D4D4D4" stroke-width="2"/>
+                    <path d="M0,14 30,14" stroke="#D4D4D4" stroke-width="2"/>
+                    <path d="M0,23 30,23" stroke="#D4D4D4" stroke-width="2"/>
+                </svg>
+              </a>
+            </span>
+        <a class="blog-header-logo text-dark" href="#">Tea and Sympathy</a>
+      </div>
     </div>
-  </nav>
+  </header>
+  <div class = "items">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="#">Home</a>
+      <a class="p-2 text-muted" href="#">Furniture</a>
+      <a class="p-2 text-muted" href="#">Homeware</a>
+      <a class="p-2 text-muted" href="#">Contact</a>
+      <a class="p-2 text-muted" href="#">Menu</a>
+      <a class="p-2 text-muted" href="#">Suppliers</a>
+    </nav>
+  </div>
 </div>
-          
+</div>
 
-
+    
+      <div id="side-menu" class="side-nav">
+        <a class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <a>Cafe</a>
+        <a routerLink="/homeware" onclick="closeSlideMenu()">Homeware</a>
+        <a routerLink="/furniture" onclick="closeSlideMenu()">Furniture</a>
+        <a routerLink="/contact" onclick="closeSlideMenu()">Contact</a>
+      </div>
+    
+    
