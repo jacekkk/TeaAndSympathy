@@ -19,12 +19,6 @@ a.mat-menu-item > mat-icon {
   font-size:24px;
 }
 
-/*.mat-icon svg {
-  font-size:48px !important;
-  height: 48px !important;
-  width: 48px !important;
-}*/
-
 .bg {
   height: 95vh;
   min-height: 300px;

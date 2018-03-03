@@ -149,13 +149,11 @@ td {
 }
 
 .dropzone {
-  display: flex;
+  display: block;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 300px;
-  border: 2px dashed #f16624;
-  border-radius: 5px;
+  height: 15vh;
+  border: 1px dotted #41495C;
+  border-radius: 3px;
   background: white;
   margin: 10px 0;
 
