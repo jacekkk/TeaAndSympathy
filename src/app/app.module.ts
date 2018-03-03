@@ -25,7 +25,7 @@ import {ContactComponent} from './components/contact/contact.component';
 import {CafeComponent} from './components/cafe/cafe.component';
 import {SuppliersComponent} from './components/suppliers/suppliers.component';
 import {MenuComponent} from './components/menu/menu.component';
-import {HeaderComponent} from './components/header/header.component';
+
 import {ProductdetailComponent} from './productdetail/productdetail.component';
 
 import {MatFormFieldModule} from '@angular/material';
@@ -41,7 +41,9 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {FlexLayoutModule } from '@angular/flex-layout';
 
 import { ReCaptchaModule } from 'angular2-recaptcha';
-import { ImageUploadModule } from "angular2-image-upload";
+import { DropZoneDirective } from './drop-zone.directive';
+import { HeadingComponent } from './components/heading/heading.component';
+
 
 
 
@@ -78,7 +80,7 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
-import { DropZoneDirective } from './drop-zone.directive';
+
 
 
 const appRoutes: Routes = [
@@ -104,13 +106,15 @@ const appRoutes: Routes = [
     CafeComponent,
     SuppliersComponent,
     MenuComponent,
-    HeaderComponent,
+   
     MenuComponent,
     DialogContactForm,
     DialogHomewareProduct,
     DialogFurnitureProduct,
     ProductdetailComponent,
-    DropZoneDirective
+    DropZoneDirective,
+    HeadingComponent,
+   
 
   ],
   imports: [
@@ -162,7 +166,7 @@ const appRoutes: Routes = [
     AngularFireStorageModule,
     FlexLayoutModule,
     ReCaptchaModule,
-    ImageUploadModule.forRoot()
+    
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],
