@@ -87,22 +87,24 @@
 
           <!--IMAGE UPLOADER-->
           <div class="dropzone"
-               dropZone=""
+               dropZone
                (hovered)="toggleHover($event)"
-               (dropped)="startUpload()"
+               (dropped)="startUpload($event)"
                [class.hovering]="isHovering">
-            <div class="file">
-              <label class="file-label">
-                <input class="file-input" type="file" (change)="startUpload($event.target.files)">
-                <span class="file-cta">
-            <span class="file-icon">
-              <i class="fa fa-upload"></i>
-            </span>
-            <span class="file-label">
-              or choose a file…
-            </span>
-          </span>
-              </label>
+            <div class="container-fluid">
+              <div class="row" style="display: inline-flex; vertical-align: middle; line-height: normal; width: 100%;">
+                <div class="col">
+                  <input class="file-input" type="file" style="max-width: 200px;"
+                         (change)="startUpload($event.target.files)">
+                  <span class="file-cta"></span>
+                </div>
+                <div class="col">
+                  <div class="file-icon">
+                    <i class="fa fa-upload"></i>
+                    <span style="padding-left: 20px;">or drop a file</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -138,7 +140,7 @@
       <div>
         <mat-card>
           <div class="info">
-            <div class="cafe-name" >Tea & Sympathy Edinburgh</div>
+            <div class="cafe-name">Tea & Sympathy Edinburgh</div>
             <div class="cafe-info">
               <a><i class="material-icons">home</i></a>
               <span class="cafe-details">1E Ashley Terrace<br>EH11 1RF Edinburgh<br>United Kingdom</span>
