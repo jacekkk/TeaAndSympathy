@@ -2,7 +2,6 @@ section.cta {
   position: relative;
   height:100vh;
   padding: 25px 0;
-  background-image:url('/assets/img/fakecafe.jpeg');
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;

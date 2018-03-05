@@ -44,6 +44,8 @@ import { ReCaptchaModule } from 'angular2-recaptcha';
 import { DropZoneDirective } from './drop-zone.directive';
 import { HeadingComponent } from './components/heading/heading.component';
 
+import { RouterLinkActive } from '@angular/router';
+
 
 
 
@@ -84,10 +86,10 @@ import {
 
 
 const appRoutes: Routes = [
-  {path: '', component: LandingComponent},
-  {path: 'cafe', component: CafeComponent},
-  {path: 'cafe/suppliers', component: SuppliersComponent},
-  {path: 'cafe/menu', component: MenuComponent},
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  {path: 'landing', component: LandingComponent},
+  {path: 'suppliers', component: SuppliersComponent},
+  {path: 'menu', component: MenuComponent},
   {path: 'furniture', component: FurnitureComponent},
   {path: 'homeware', component: HomewareComponent},
   {path: 'homeware/:slug', component: ProductdetailComponent },
@@ -120,6 +122,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    RouterModule,
     NgbModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,

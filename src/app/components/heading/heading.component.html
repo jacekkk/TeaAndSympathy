@@ -10,17 +10,51 @@
   <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
 </div>  -->
 
-
-<section class="cta">
+<div class ="container">
+<section *ngIf="_router.url.includes('homeware')" class="cta" style="background-image: url(/assets/img/homeware.jpg);">
   <div class="cta-content">
       <div class="masthead">
       <div class="container">
-          <div class="intro-text">
-            <div class="intro-lead-in animated fadeIn">Welcome To Our Studio!</div>
+          <!-- <div class="intro-text">
+            <div class="intro-lead-in animated fadeIn">
+              <p>Homeware</p>
+            </div>
             <div class="intro-heading text-uppercase animated fadeIn">It's Nice To Meet You</div>
-          </div>
+          </div> -->
         </div>
         </div>
     </div>
   <div class="overlay"></div>
 </section>
+<section *ngIf="_router.url.includes('landing')" class="cta" style="background-image: url(/assets/img/cafephoto.jpg);">
+  <div class="cta-content">
+      <div class="masthead">
+      <div class="container">
+          <!-- <div class="intro-text">
+            <div class="intro-lead-in animated fadeIn">
+              <p>Home</p>
+            </div>
+            <div class="intro-heading text-uppercase animated fadeIn">It's Nice To Meet You</div>
+          </div> -->
+        </div>
+        </div>
+    </div>
+  <div class="overlay"></div>
+</section>
+<section *ngIf="_router.url.includes('furniture')" class="cta" style="background-image: url(/assets/img/chair.jpeg);">
+  <div class="cta-content">
+      <div class="masthead">
+      <div class="container">
+          <!-- <div class="intro-text">
+            <div class="intro-lead-in animated fadeIn">
+              <p>Furniture</p>
+            </div>
+            <div class="intro-heading text-uppercase animated fadeIn">It's Nice To Meet You</div>
+          </div> -->
+        </div>
+        </div>
+    </div>
+  <div class="overlay"></div>
+</section>
+</div>
+
