@@ -149,28 +149,24 @@ td {
 }
 
 .dropzone {
-  height: 15vh;
+  height: auto;
   line-height: 15vh;
   text-align: center;
   border: 1px dotted #41495C;
   border-radius: 3px;
   background: white;
-
-  &.hovering {
-     border: 2px solid #f16624;
-     color: #dadada !important;
-   }
 }
 
-progress::-webkit-progress-value {
-  transition: width 0.1s ease;
+.dropzone.dragover{
+  border: 2px dotted black;
+  background-color: lightgrey;
 }
 
-.file-icon{
+.file-icon {
   white-space: nowrap;
   overflow: hidden;
 }
 
-.col{
+.col {
   margin: auto;
 }

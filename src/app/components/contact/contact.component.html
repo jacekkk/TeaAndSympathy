@@ -86,16 +86,12 @@
           </div>
 
           <!--IMAGE UPLOADER-->
-          <div class="dropzone"
-               dropZone
-               (hovered)="toggleHover($event)"
-               (dropped)="startUpload($event)"
-               [class.hovering]="isHovering">
+          <div class="dropzone" id="dropzone" dropZone (dropped)="getFiles($event)">
             <div class="container-fluid">
               <div class="row" style="display: inline-flex; vertical-align: middle; line-height: normal; width: 100%;">
                 <div class="col">
                   <input class="file-input" type="file" style="max-width: 200px;"
-                         (change)="startUpload($event.target.files)">
+                         (change)="getFiles($event.target.files)">
                   <span class="file-cta"></span>
                 </div>
                 <div class="col">
@@ -106,15 +102,7 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!--UPLOAD PROGRESS-->
-          <div *ngIf="percentage | async as pct">
-            <progress class="progress is-info"
-                      [value]="pct"
-                      max="100">
-            </progress>
-            {{ pct | number }}%
+            <div #uploadResponse style="line-height: normal; padding-bottom: 10px;"></div>
           </div>
 
           <!--CAPTCHA-->
@@ -202,9 +190,3 @@
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="map-container">
   <div id="map"></div>
 </div>
-
-
-
-
-
-

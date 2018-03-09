@@ -24,16 +24,38 @@
 
 <!-- script code for nave menu -->
 <script>
-    function openSlideMenu(){
-      document.getElementById('side-menu').style.width = '250px';
-      document.getElementById('main').style.marginLeft = '250px';
-    }
+  function openSlideMenu() {
+    document.getElementById('side-menu').style.width = '250px';
+    document.getElementById('main').style.marginLeft = '250px';
+  }
 
-    function closeSlideMenu(){
-      document.getElementById('side-menu').style.width = '0';
-      document.getElementById('main').style.marginLeft = '0';
-    }
-  </script>
+  function closeSlideMenu() {
+    document.getElementById('side-menu').style.width = '0';
+    document.getElementById('main').style.marginLeft = '0';
+  }
+</script>
+
+<!-- script code for file dropzone -->
+<script>
+  (function () {
+    var dropzone = document.getElementById('dropzone');
+
+    dropzone.ondrop = function(e) {
+      e.preventDefault();
+      this.className = 'dropzone';
+    };
+
+    dropzone.ondragover = function () {
+      this.className = 'dropzone dragover';
+      return false;
+    };
+
+    dropzone.ondragleave = function () {
+      this.className = 'dropzone';
+      return false;
+    };
+  }());
+</script>
 
 
 </html>

@@ -11,6 +11,7 @@ import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import {tap} from 'rxjs/operators';
+import {forEach} from '@angular/router/src/utils/collection';
 
 declare var google: any;
 
@@ -34,21 +35,17 @@ export class ContactComponent implements OnInit {
   message: Message;
   dialogText: string;
 
-  // Main upload task
+  files = [];
+  path: string;
+
+  // Main task
   task: AngularFireUploadTask;
 
-  // Progress monitoring
-  percentage: Observable<number>;
-  snapshot: Observable<any>;
-
-  // URL
-  downloadURL: Observable<string>;
-
-  // State for dopzone CSS toggling
-  isHovering: boolean;
-
-  // obtain reference to recaptcha element from template file
+  // reference to recaptcha element from template file
   @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
+
+  // reference to uploadResponse element from template file
+  @ViewChild('uploadResponse') uploadResp: ElementRef;
 
   // tracks the value and validation status of the email input field in the form
   emailFormControl = new FormControl('', [
@@ -79,8 +76,7 @@ export class ContactComponent implements OnInit {
   constructor(fb: FormBuilder,
               private messageService: MessageService,
               public dialog: MatDialog,
-              private storage: AngularFireStorage,
-              private db: AngularFirestore) {
+              private storage: AngularFireStorage) {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto',
@@ -92,46 +88,27 @@ export class ContactComponent implements OnInit {
     this.initMap();
   }
 
-  toggleHover(event: boolean){
-    this.isHovering = event;
-  }
+  getFiles(event: FileList) {
+    for (let i = 0; i < event.length; i++) {
+      let file = event.item(i);
+      let content: Text;
+      let br = document.createElement('br');
 
-  startUpload(event: FileList){
-    // file object
-    const file = event.item(0);
+      // validate file type
+      if (file.type.split('/')[0] !== 'image') {
+        content = document.createTextNode(file.name + ' is not an image');
+      }
+      else {
+        this.files.push(file);
+        content = document.createTextNode(file.name + ' attached successfully');
+      }
 
-    // client-side validation
-    if(file.type.split('/')[0] !== 'image'){
-      console.error('unsupported file type :( ');
-      return;
+      this.uploadResp.nativeElement.appendChild(content);
+      this.uploadResp.nativeElement.appendChild(br);
     }
 
-    // storage path
-    const path = `test/${new Date().getTime()}_${file.name}`;
-
-    // main upload task
-    this.task = this.storage.upload(path, file);
-
-    // upload progress monitoring
-    this.percentage = this.task.percentageChanges();
-    this.snapshot = this.task.snapshotChanges().pipe(
-      tap(snap => {
-        if (snap.bytesTransferred === snap.totalBytes) {
-          // Update firestore on completion
-          this.db.collection('photos').add( { path, size: snap.totalBytes })
-        }
-      })
-    );
-
-    // file download URL
-    this.downloadURL = this.task.downloadURL();
+    console.log('Num of files: ' + this.files.length);
   }
-
-  // determine if the upload task is active
-  isActive(snapshot){
-    return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
-  }
-
 
   initMap() {
     const cafeLocation = {lat: 55.932594, lng: -3.228151};
@@ -160,7 +137,16 @@ export class ContactComponent implements OnInit {
     this.messageFormControl.reset();
     this.messageFormControl.setErrors(null);
 
+    // reset recaptcha
     this.captcha.reset();
+
+    // clear the files array after files have been uploaded
+    this.files = [];
+
+    // remove all child nodes from 'uploadResponse' div
+    while (this.uploadResp.nativeElement.hasChildNodes()) {
+      this.uploadResp.nativeElement.removeChild(this.uploadResp.nativeElement.lastChild);
+    }
   }
 
   // handles user's attempt to submit the form once he clicks "Send" button
@@ -168,7 +154,7 @@ export class ContactComponent implements OnInit {
     console.log(this.message);
 
     let token = this.captcha.getResponse();
-    console.log("RESPONSE TOKEN: " + token);
+    console.log('RESPONSE TOKEN: ' + token);
 
     // check if captcha validation was successful
     if (this.captcha.getResponse() === '') {
@@ -180,6 +166,11 @@ export class ContactComponent implements OnInit {
     }
     else {
       this.messageService.insertMessage(this.message);
+
+      // upload photos to firebase
+      for (let file of this.files) {
+        this.task = this.storage.upload(`test/${this.message.email}_${this.files.indexOf(file)}`, file);
+      }
 
       this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
 
@@ -206,7 +197,7 @@ export class ContactComponent implements OnInit {
   }
 }
 
-// dialog component
+// onSend dialog component
 @Component({
   selector: 'dialog-contact-form',
   templateUrl: 'dialog-contact-form.html',
