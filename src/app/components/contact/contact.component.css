@@ -157,7 +157,7 @@ td {
   background: white;
 }
 
-.dropzone.dragover{
+.dropzone.dragover {
   border: 2px dotted black;
   background-color: lightgrey;
 }
