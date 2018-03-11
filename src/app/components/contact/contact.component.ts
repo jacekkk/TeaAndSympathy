@@ -5,13 +5,8 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Message} from '../../logic/Message';
 import {MessageService} from '../../logic/MessageService';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import * as firebase from 'firebase/app';
 import {ReCaptchaComponent} from 'angular2-recaptcha';
 import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
-import {AngularFirestore} from 'angularfire2/firestore';
-import {Observable} from 'rxjs/Observable';
-import {tap} from 'rxjs/operators';
-import {forEach} from '@angular/router/src/utils/collection';
 
 declare var google: any;
 
@@ -90,12 +85,16 @@ export class ContactComponent implements OnInit {
 
   getFiles(event: FileList) {
     for (let i = 0; i < event.length; i++) {
+      console.log('event length: ' + event.length);
+
       let file = event.item(i);
       let content: Text;
       let br = document.createElement('br');
 
-      // validate file type
-      if (file.type.split('/')[0] !== 'image') {
+      if (this.files.length >= 5) {
+        content = document.createTextNode('Too many photos - up to 5 allowed');
+      }
+      else if (file.type.split('/')[0] !== 'image') {
         content = document.createTextNode(file.name + ' is not an image!');
       }
       else {

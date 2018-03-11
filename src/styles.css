@@ -29,9 +29,9 @@ a.mat-menu-item > mat-icon {
   background-size: cover;
 }
 
-/* body {
-  overflow-x: hidden;
-} */
+body {
+  min-width: 300px;
+}
 
 #slide-main {
   transition: margin-left 1s;
