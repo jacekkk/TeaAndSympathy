@@ -35,27 +35,4 @@
   }
 </script>
 
-<!-- script code for file dropzone -->
-<script>
-  (function () {
-    var dropzone = document.getElementById('dropzone');
-
-    dropzone.ondrop = function(e) {
-      e.preventDefault();
-      this.className = 'dropzone';
-    };
-
-    dropzone.ondragover = function () {
-      this.className = 'dropzone dragover';
-      return false;
-    };
-
-    dropzone.ondragleave = function () {
-      this.className = 'dropzone';
-      return false;
-    };
-  }());
-</script>
-
-
 </html>

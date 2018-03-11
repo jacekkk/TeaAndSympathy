@@ -96,7 +96,7 @@ export class ContactComponent implements OnInit {
 
       // validate file type
       if (file.type.split('/')[0] !== 'image') {
-        content = document.createTextNode(file.name + ' is not an image');
+        content = document.createTextNode(file.name + ' is not an image!');
       }
       else {
         this.files.push(file);
@@ -169,7 +169,7 @@ export class ContactComponent implements OnInit {
 
       // upload photos to firebase
       for (let file of this.files) {
-        this.task = this.storage.upload(`test/${this.message.email}_${this.files.indexOf(file)}`, file);
+        this.task = this.storage.upload(`test/${new Date().getTime()}_${this.message.email}_${this.files.indexOf(file)}`, file);
       }
 
       this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
