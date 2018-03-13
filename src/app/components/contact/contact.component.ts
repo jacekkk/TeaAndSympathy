@@ -97,10 +97,15 @@ export class ContactComponent implements OnInit {
       else if (file.type.split('/')[0] !== 'image') {
         content = document.createTextNode(file.name + ' is not an image!');
       }
+      else if (file.size > 5242880) {
+        content = document.createTextNode(file.name + ' is too big - max size is 5 MB');
+      }
       else {
         this.files.push(file);
         content = document.createTextNode(file.name + ' attached successfully');
       }
+
+      console.log('File size: ' + file.size);
 
       this.uploadResp.nativeElement.appendChild(content);
       this.uploadResp.nativeElement.appendChild(br);
@@ -168,7 +173,7 @@ export class ContactComponent implements OnInit {
 
       // upload photos to firebase
       for (let file of this.files) {
-        this.task = this.storage.upload(`test/${new Date().getTime()}_${this.message.email}_${this.files.indexOf(file)}`, file);
+        this.task = this.storage.upload(`customer_attachments/${new Date().getTime()}_${this.message.email}_${this.files.indexOf(file)}`, file);
       }
 
       this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
