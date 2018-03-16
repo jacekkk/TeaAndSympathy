@@ -44,10 +44,10 @@ exports.sendEmailConfirmation = functions.database.ref('/messages/{pushId}').onC
     text: ''
   };
 
-  if(phone != null){
+  if (phone != null) {
     mailOptions.text = `Sender: ${senderEmail} \nPhone number: ${phone} \nMessage: ${body}`;
   }
-  else{
+  else {
     mailOptions.text = `Sender: ${senderEmail} \nMessage: ${body}`;
   }
 
