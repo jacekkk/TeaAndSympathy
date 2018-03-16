@@ -7,6 +7,9 @@ import {MessageService} from '../../logic/MessageService';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ReCaptchaComponent} from 'angular2-recaptcha';
 import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
+import {Observable} from 'rxjs/Rx';
+import {promise} from 'selenium-webdriver';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 declare var google: any;
 
@@ -35,6 +38,10 @@ export class ContactComponent implements OnInit {
 
   // Main task
   task: AngularFireUploadTask;
+
+  // Download URL
+  downloadURL: Promise<string>;
+  downloadLink: Observable<string>;
 
   // reference to recaptcha element from template file
   @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
@@ -155,8 +162,6 @@ export class ContactComponent implements OnInit {
 
   // handles user's attempt to submit the form once he clicks "Send" button
   onSend() {
-    console.log(this.message);
-
     let token = this.captcha.getResponse();
     console.log('RESPONSE TOKEN: ' + token);
 
@@ -169,12 +174,60 @@ export class ContactComponent implements OnInit {
       this.dialogText = 'Failed to send, please check your input and try again.';
     }
     else {
-      this.messageService.insertMessage(this.message);
+      let tmpMessage = new Message();
+      tmpMessage.name = this.message.name;
+      tmpMessage.email = this.message.email;
+      tmpMessage.phone = this.message.phone;
+      tmpMessage.body = this.message.body;
+      tmpMessage.subject = this.message.subject;
+
+      let numOfFiles = this.files.length - 1;
+
+      for (let i = 0; i < this.files.length; i++) {
+        this.task = this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[i])}`, this.files[i]);
+
+        this.task.downloadURL().subscribe((data: any) => {
+          if (data) {
+            tmpMessage.photoUrl.push(data);
+
+            // do that at the last iteration of the for loop
+            if (i == numOfFiles) {
+              setTimeout(function () {
+                console.log('waiting....');
+              }, 5000);
+              this.messageService.insertMessage(tmpMessage);
+            }
+          }
+        });
+      }
 
       // upload photos to firebase
-      for (let file of this.files) {
+      /*for (let file of this.files) {
+
         this.task = this.storage.upload(`customer_attachments/${new Date().getTime()}_${this.message.email}_${this.files.indexOf(file)}`, file);
+
+        this.task.downloadURL().subscribe((data: any) => {
+          if (data) {
+            link = data;
+            console.log(link);
+
+            //this.messageService.insertImageUrl(link, name, new Date().getTime());
+
+            // TODO add link to array instead of uploading
+            urls.push(link);
+
+            tmpMessage.photoUrl = urls[0];
+          }
+        });
       }
+
+      setTimeout(function () {
+        //let firebase = new AngularFireDatabase();
+        console.log(tmpMessage);
+        console.log(this.messageService);
+        //firebase.database.ref().child('messages').child(tmpMessage.name).set(tmpMessage);
+        this.messageService.insertMessage(this.message);
+      }, 5000);*/
 
       this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
 
@@ -196,7 +249,7 @@ export class ContactComponent implements OnInit {
     dialogRef.updateSize('auto', 'auto');
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
 }

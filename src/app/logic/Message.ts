@@ -6,6 +6,7 @@ export class Message {
   email: string = '';
   phone: number = null;
   body: string = '';
+  photoUrl = [];
 
   constructor() {
   }
