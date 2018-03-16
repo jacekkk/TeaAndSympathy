@@ -174,6 +174,8 @@ export class ContactComponent implements OnInit {
       this.dialogText = 'Failed to send, please check your input and try again.';
     }
     else {
+      let tmpData;
+
       let tmpMessage = new Message();
       tmpMessage.name = this.message.name;
       tmpMessage.email = this.message.email;
@@ -188,14 +190,15 @@ export class ContactComponent implements OnInit {
 
         this.task.downloadURL().subscribe((data: any) => {
           if (data) {
-            tmpMessage.photoUrl.push(data);
+            tmpData = data;
+            console.log("file: " + tmpData);
+
+            tmpMessage.photoUrl.push(tmpData);
 
             // do that at the last iteration of the for loop
             if (i == numOfFiles) {
-              setTimeout(function () {
-                console.log('waiting....');
-              }, 5000);
               this.messageService.insertMessage(tmpMessage);
+              sendToDatabase(tmpMessage, this.messageService);
             }
           }
         });
@@ -238,6 +241,17 @@ export class ContactComponent implements OnInit {
       this.message.body = '';
 
       this.resetForm();
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function sendToDatabase(message : Message, messageService : MessageService) {
+      console.log('Taking a break...');
+      await sleep(5000);
+      console.log('Five seconds later');
+      messageService.insertMessage(message);
     }
 
     // open dialog after user has attempted to send the form
