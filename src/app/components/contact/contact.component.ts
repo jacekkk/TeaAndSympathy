@@ -7,9 +7,11 @@ import {MessageService} from '../../logic/MessageService';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ReCaptchaComponent} from 'angular2-recaptcha';
 import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
-import {Observable} from 'rxjs/Rx';
-import {promise} from 'selenium-webdriver';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/observable/zip';
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/first';
 
 declare var google: any;
 
@@ -174,8 +176,6 @@ export class ContactComponent implements OnInit {
       this.dialogText = 'Failed to send, please check your input and try again.';
     }
     else {
-      let tmpData;
-
       let tmpMessage = new Message();
       tmpMessage.name = this.message.name;
       tmpMessage.email = this.message.email;
@@ -183,54 +183,134 @@ export class ContactComponent implements OnInit {
       tmpMessage.body = this.message.body;
       tmpMessage.subject = this.message.subject;
 
-      let numOfFiles = this.files.length - 1;
+      console.log('Num of files: ' + this.files.length);
 
-      for (let i = 0; i < this.files.length; i++) {
-        this.task = this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[i])}`, this.files[i]);
+      switch (this.files.length) {
+        case 0: {
+          this.messageService.insertMessage(tmpMessage);
+          console.log('Written to db' + tmpMessage.toString());
+          break;
+        }
+        case 1: {
+          Observable.zip(this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[0])}`, this.files[0])
+            .downloadURL())
+            .subscribe(([a]) => {
+                tmpMessage.photoUrl.push(a);
+                console.log('Pushed ' + a);
+              },
+              error => console.log('Error: ', error),
+              () => {
+                this.messageService.insertMessage(tmpMessage);
+                console.log('Written to db: ' + tmpMessage.toString())
+              }
+            );
+          break;
+        }
+        case 2: {
+          Observable.zip(this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[0])}`, this.files[0])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[1])}`, this.files[1])
+            .downloadURL())
+            .subscribe(([a, b]) => {
+                tmpMessage.photoUrl.push(a);
+                console.log('Pushed ' + a);
 
-        this.task.downloadURL().subscribe((data: any) => {
-          if (data) {
-            tmpData = data;
-            console.log("file: " + tmpData);
+                tmpMessage.photoUrl.push(b);
+                console.log('Pushed ' + b);
+              },
+              error => console.log('Error: ', error),
+              () => {
+                this.messageService.insertMessage(tmpMessage);
+                console.log('Written to db: ' + tmpMessage.toString())
+              }
+            );
+          break;
+        }
+        case 3: {
+          Observable.zip(this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[0])}`, this.files[0])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[1])}`, this.files[1])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[2])}`, this.files[2])
+            .downloadURL())
+            .subscribe(([a, b, c]) => {
+                tmpMessage.photoUrl.push(a);
+                console.log('Pushed ' + a);
 
-            tmpMessage.photoUrl.push(tmpData);
+                tmpMessage.photoUrl.push(b);
+                console.log('Pushed ' + b);
 
-            // do that at the last iteration of the for loop
-            if (i == numOfFiles) {
-              this.messageService.insertMessage(tmpMessage);
-              sendToDatabase(tmpMessage, this.messageService);
-            }
-          }
-        });
+                tmpMessage.photoUrl.push(c);
+                console.log('Pushed ' + c);
+              },
+              error => console.log('Error: ', error),
+              () => {
+                this.messageService.insertMessage(tmpMessage);
+                console.log('Written to db: ' + tmpMessage.toString())
+              }
+            );
+          break;
+        }
+        case 4: {
+          Observable.zip(this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[0])}`, this.files[0])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[1])}`, this.files[1])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[2])}`, this.files[2])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[3])}`, this.files[3])
+            .downloadURL())
+            .subscribe(([a, b, c, d]) => {
+                tmpMessage.photoUrl.push(a);
+                console.log('Pushed ' + a);
+
+                tmpMessage.photoUrl.push(b);
+                console.log('Pushed ' + b);
+
+                tmpMessage.photoUrl.push(c);
+                console.log('Pushed ' + c);
+
+                tmpMessage.photoUrl.push(d);
+                console.log('Pushed ' + d);
+              },
+              error => console.log('Error: ', error),
+              () => {
+                this.messageService.insertMessage(tmpMessage);
+                console.log('Written to db: ' + tmpMessage.toString())
+              }
+            );
+          break;
+        }
+        case 5: {
+          Observable.zip(this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[0])}`, this.files[0])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[1])}`, this.files[1])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[2])}`, this.files[2])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[3])}`, this.files[3])
+            .downloadURL(), this.storage.upload(`customer_attachments/${new Date().getTime()}_${tmpMessage.email}_${this.files.indexOf(this.files[4])}`, this.files[4])
+            .downloadURL())
+            .subscribe(([a, b, c, d, e]) => {
+                tmpMessage.photoUrl.push(a);
+                console.log('Pushed ' + a);
+
+                tmpMessage.photoUrl.push(b);
+                console.log('Pushed ' + b);
+
+                tmpMessage.photoUrl.push(c);
+                console.log('Pushed ' + c);
+
+                tmpMessage.photoUrl.push(d);
+                console.log('Pushed ' + d);
+
+                tmpMessage.photoUrl.push(e);
+                console.log('Pushed ' + e);
+              },
+              error => console.log('Error: ', error),
+              () => {
+                this.messageService.insertMessage(tmpMessage);
+                console.log('Written to db: ' + tmpMessage.toString())
+              }
+            );
+          break;
+        }
+        default: {
+          //statements;
+          break;
+        }
       }
-
-      // upload photos to firebase
-      /*for (let file of this.files) {
-
-        this.task = this.storage.upload(`customer_attachments/${new Date().getTime()}_${this.message.email}_${this.files.indexOf(file)}`, file);
-
-        this.task.downloadURL().subscribe((data: any) => {
-          if (data) {
-            link = data;
-            console.log(link);
-
-            //this.messageService.insertImageUrl(link, name, new Date().getTime());
-
-            // TODO add link to array instead of uploading
-            urls.push(link);
-
-            tmpMessage.photoUrl = urls[0];
-          }
-        });
-      }
-
-      setTimeout(function () {
-        //let firebase = new AngularFireDatabase();
-        console.log(tmpMessage);
-        console.log(this.messageService);
-        //firebase.database.ref().child('messages').child(tmpMessage.name).set(tmpMessage);
-        this.messageService.insertMessage(this.message);
-      }, 5000);*/
 
       this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
 
@@ -241,17 +321,6 @@ export class ContactComponent implements OnInit {
       this.message.body = '';
 
       this.resetForm();
-    }
-
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    async function sendToDatabase(message : Message, messageService : MessageService) {
-      console.log('Taking a break...');
-      await sleep(5000);
-      console.log('Five seconds later');
-      messageService.insertMessage(message);
     }
 
     // open dialog after user has attempted to send the form

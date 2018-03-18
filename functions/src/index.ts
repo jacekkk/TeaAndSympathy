@@ -27,32 +27,36 @@ const mailTransport = nodemailer.createTransport({
 });
 
 // Sends an email confirmation when a user changes his mailing list subscription.
-exports.sendEmailConfirmation = functions.database.ref('/messages/{pushId}').onCreate((event) => {
+exports.sendEmailConfirmation = functions.database.ref('/messages/{pushId}').onWrite((event) => {
   //const original = event.data.val();
   const snapshot = event.data;
-  const val = snapshot.val();
   const senderEmail = snapshot.child('/email').val();
   const subject = snapshot.child('/subject').val();
   const phone = snapshot.child('/phone').val();
   const body = snapshot.child('/body').val();
-  //const photos = snapshot.child('/photos').val();
+  const photo1 = snapshot.child('/photoUrl').child('/0').val();
+  const photo2 = snapshot.child('/photoUrl').child('/1').val();
+  const photo3 = snapshot.child('/photoUrl').child('/2').val();
+  const photo4 = snapshot.child('/photoUrl').child('/3').val();
+  const photo5 = snapshot.child('/photoUrl').child('/4').val();
+  let photos = [];
+
+  if (snapshot.hasChild('/photoUrl')) {
+    photos = snapshot.child('/photoUrl').val();
+    console.log(photos);
+  }
 
   const mailOptions = {
     from: gmailEmail,
     to: '40212585@live.napier.ac.uk',
     subject: subject,
-    text: ''
+    html: 'Sender: ' + senderEmail + '<br>Phone: ' + phone + '<p>Message: ' + body + '</p><a href="' + photo1 + '">Photo1 </a>'
+    + '<br><a href="' + photo2 + '">Photo2 </a>' + '<br><a href="' + photo3 + '">Photo3 </a>' + '<br><a href="' + photo4 + '">Photo4 </a>'
+    + '<br><a href="' + photo5 + '">Photo5 </a>' + '<br><br>' + photos
   };
-
-  if (phone != null) {
-    mailOptions.text = `Sender: ${senderEmail} \nPhone number: ${phone} \nMessage: ${body}`;
-  }
-  else {
-    mailOptions.text = `Sender: ${senderEmail} \nMessage: ${body}`;
-  }
-
 
   return mailTransport.sendMail(mailOptions)
     .then(() => console.log(`New email sent from: `, mailOptions.from, `to: `, mailOptions.to))
     .catch((error) => console.error('There was an error while sending the email: ', error));
-});
+})
+;

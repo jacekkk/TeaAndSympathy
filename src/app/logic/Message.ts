@@ -11,4 +11,8 @@ export class Message {
   constructor() {
   }
 
+  public toString(): string {
+    return 'Subject: ' + this.subject + '\nName: ' + this.name + '\nEmail: ' + this.email + '\nPhone: ' + this.phone +
+      '\nBody: ' + this.body + '\nNumber of photo urls: ' + this.photoUrl.length;
+  }
 }
