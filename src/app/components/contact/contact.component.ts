@@ -201,7 +201,7 @@ export class ContactComponent implements OnInit {
               error => console.log('Error: ', error),
               () => {
                 this.messageService.insertMessage(tmpMessage);
-                console.log('Written to db: ' + tmpMessage.toString())
+                console.log('Written to db: ' + tmpMessage.toString());
               }
             );
           break;
@@ -220,7 +220,7 @@ export class ContactComponent implements OnInit {
               error => console.log('Error: ', error),
               () => {
                 this.messageService.insertMessage(tmpMessage);
-                console.log('Written to db: ' + tmpMessage.toString())
+                console.log('Written to db: ' + tmpMessage.toString());
               }
             );
           break;
@@ -243,7 +243,7 @@ export class ContactComponent implements OnInit {
               error => console.log('Error: ', error),
               () => {
                 this.messageService.insertMessage(tmpMessage);
-                console.log('Written to db: ' + tmpMessage.toString())
+                console.log('Written to db: ' + tmpMessage.toString());
               }
             );
           break;
@@ -270,7 +270,7 @@ export class ContactComponent implements OnInit {
               error => console.log('Error: ', error),
               () => {
                 this.messageService.insertMessage(tmpMessage);
-                console.log('Written to db: ' + tmpMessage.toString())
+                console.log('Written to db: ' + tmpMessage.toString());
               }
             );
           break;
@@ -301,7 +301,7 @@ export class ContactComponent implements OnInit {
               error => console.log('Error: ', error),
               () => {
                 this.messageService.insertMessage(tmpMessage);
-                console.log('Written to db: ' + tmpMessage.toString())
+                console.log('Written to db: ' + tmpMessage.toString());
               }
             );
           break;
