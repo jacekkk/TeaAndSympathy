@@ -13,7 +13,7 @@ export class MessageService {
   }
 
   insertMessage(message: Message) {
-    const firebaseRef = this.firebase.database.ref().child('messages').child(message.name).set(message);
+    const firebaseRef = this.firebase.database.ref().child('messages').child(new Date().getTime().toLocaleString()).set(message);
   }
 
   insertImageUrl(link: string, parentPath: string, path: any) {

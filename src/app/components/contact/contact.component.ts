@@ -38,6 +38,8 @@ export class ContactComponent implements OnInit {
   files = [];
   path: string;
 
+  sendButtonText = 'Send';
+
   // Main task
   task: AngularFireUploadTask;
 
@@ -165,17 +167,21 @@ export class ContactComponent implements OnInit {
   // handles user's attempt to submit the form once he clicks "Send" button
   onSend() {
     let token = this.captcha.getResponse();
-    console.log('RESPONSE TOKEN: ' + token);
+    //console.log('CAPTCHA RESPONSE TOKEN: ' + token);
 
     // check if captcha validation was successful
     if (this.captcha.getResponse() === '') {
       console.log('Recaptcha failed: ' + this.captcha.getResponse());
       this.dialogText = 'Failed to send, please check your input and try again.';
+      this.openDialog();
     }
     else if (this.message.subject.length == 0 || this.message.name.length == 0 || this.message.email.length == 0 || this.message.body.length == 0) {
       this.dialogText = 'Failed to send, please check your input and try again.';
+      this.openDialog();
     }
     else {
+      this.sendButtonText = 'Sending...';
+
       let tmpMessage = new Message();
       tmpMessage.name = this.message.name;
       tmpMessage.email = this.message.email;
@@ -183,12 +189,15 @@ export class ContactComponent implements OnInit {
       tmpMessage.body = this.message.body;
       tmpMessage.subject = this.message.subject;
 
-      console.log('Num of files: ' + this.files.length);
+      console.log('Number of files: ' + this.files.length);
 
       switch (this.files.length) {
         case 0: {
           this.messageService.insertMessage(tmpMessage);
           console.log('Written to db' + tmpMessage.toString());
+
+          this.onSendSuccessful();
+
           break;
         }
         case 1: {
@@ -202,6 +211,8 @@ export class ContactComponent implements OnInit {
               () => {
                 this.messageService.insertMessage(tmpMessage);
                 console.log('Written to db: ' + tmpMessage.toString());
+
+                this.onSendSuccessful();
               }
             );
           break;
@@ -221,6 +232,8 @@ export class ContactComponent implements OnInit {
               () => {
                 this.messageService.insertMessage(tmpMessage);
                 console.log('Written to db: ' + tmpMessage.toString());
+
+                this.onSendSuccessful();
               }
             );
           break;
@@ -244,6 +257,8 @@ export class ContactComponent implements OnInit {
               () => {
                 this.messageService.insertMessage(tmpMessage);
                 console.log('Written to db: ' + tmpMessage.toString());
+
+                this.onSendSuccessful();
               }
             );
           break;
@@ -271,6 +286,8 @@ export class ContactComponent implements OnInit {
               () => {
                 this.messageService.insertMessage(tmpMessage);
                 console.log('Written to db: ' + tmpMessage.toString());
+
+                this.onSendSuccessful();
               }
             );
           break;
@@ -302,6 +319,8 @@ export class ContactComponent implements OnInit {
               () => {
                 this.messageService.insertMessage(tmpMessage);
                 console.log('Written to db: ' + tmpMessage.toString());
+
+                this.onSendSuccessful();
               }
             );
           break;
@@ -311,18 +330,28 @@ export class ContactComponent implements OnInit {
           break;
         }
       }
-
-      this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
-
-      this.message.subject = '';
-      this.message.name = '';
-      this.message.email = '';
-      this.message.phone = null;
-      this.message.body = '';
-
-      this.resetForm();
+      // CODE INSIDE finishSending() WAS HERE
     }
+    // CODE INSIDE openDialog() WAS HERE
+  }
 
+  onSendSuccessful(){
+    this.sendButtonText = 'Send';
+
+    this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
+
+    this.message.subject = '';
+    this.message.name = '';
+    this.message.email = '';
+    this.message.phone = null;
+    this.message.body = '';
+
+    this.resetForm();
+
+    this.openDialog();
+  }
+
+  openDialog(){
     // open dialog after user has attempted to send the form
     let dialogRef = this.dialog.open(DialogContactForm, {
       data: {text: this.dialogText}
@@ -335,6 +364,7 @@ export class ContactComponent implements OnInit {
       // console.log(`Dialog result: ${result}`);
     });
   }
+
 }
 
 // onSend dialog component
