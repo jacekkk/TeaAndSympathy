@@ -82,6 +82,7 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { MdToHtmlPipe } from './md-to-html.pipe';
 
 
 
@@ -116,6 +117,7 @@ const appRoutes: Routes = [
     ProductdetailComponent,
     DropZoneDirective,
     HeadingComponent,
+    MdToHtmlPipe,
    
 
   ],

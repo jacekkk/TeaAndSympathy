@@ -1,12 +1,13 @@
+
 section.cta {
   position: relative;
-  height:100vh;
+  height:110vh;
   padding: 25px 0;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover
+  background-size: cover;
 }
 
 section.cta .cta-content {
@@ -34,7 +35,7 @@ section.cta .overlay {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(135, 135, 135, 0.305)
+  background-color: rgba(158, 128, 105, 0.305)
 }
 
 

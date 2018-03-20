@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createClient, Entry, Space, ContentfulClientApi  } from 'contentful';
+import * as marked from 'marked';
 
 const CONFIG = {
   credentials:{
@@ -9,7 +10,11 @@ const CONFIG = {
 
   contentTypeIds: {
     homeware: 'homeware',
-    furniture: 'furniture'
+    furniture: 'furniture',
+    landing: 'landingContent',
+    landingFurniture : 'landingFurniture',
+    landingHomeware : 'landingHomeware',
+    photeHome: 'headingPhotoHome'
   }
 };
 
@@ -56,6 +61,40 @@ export class ContentfulService {
       content_type: CONFIG.contentTypeIds.homeware
     }, query))
       .then(res => res.items);
+  }
+
+
+  getLandingContent(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.landing
+    }, query))
+      .then(res => res.items);
+  }
+
+  getLandingFurniture(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.landingFurniture
+    }, query))
+      .then(res => res.items);
+  }
+
+  getLandingHomeware(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.landingHomeware
+    }, query))
+      .then(res => res.items);
+  }
+
+  getHomePhoto(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.photeHome
+    }, query))
+      .then(res => res.items);
+  }
+  markdownToHtml(md:string){
+
+    return marked(md);
+
   }
 
   getFurnitureItems(query?: object): Promise<Entry<any>[]> {
