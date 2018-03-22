@@ -40,12 +40,7 @@ export class ContactComponent implements OnInit {
 
   sendButtonText = 'Send';
 
-  // Main task
-  task: AngularFireUploadTask;
-
-  // Download URL
-  downloadURL: Promise<string>;
-  downloadLink: Observable<string>;
+  spinnerButton: any;
 
   // reference to recaptcha element from template file
   @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
@@ -92,6 +87,9 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.message = new Message();
     this.initMap();
+
+    this.spinnerButton = document.getElementById('spinner');
+    this.spinnerButton.hidden = true;
   }
 
   getFiles(event: FileList) {
@@ -181,6 +179,7 @@ export class ContactComponent implements OnInit {
     }
     else {
       this.sendButtonText = 'Sending...';
+      this.spinnerButton.hidden = false;
 
       let tmpMessage = new Message();
       tmpMessage.name = this.message.name;
@@ -330,13 +329,12 @@ export class ContactComponent implements OnInit {
           break;
         }
       }
-      // CODE INSIDE finishSending() WAS HERE
     }
-    // CODE INSIDE openDialog() WAS HERE
   }
 
-  onSendSuccessful(){
+  onSendSuccessful() {
     this.sendButtonText = 'Send';
+    this.spinnerButton.hidden = true;
 
     this.dialogText = 'Message sent, thank you. We will be in touch shortly.';
 
@@ -351,7 +349,7 @@ export class ContactComponent implements OnInit {
     this.openDialog();
   }
 
-  openDialog(){
+  openDialog() {
     // open dialog after user has attempted to send the form
     let dialogRef = this.dialog.open(DialogContactForm, {
       data: {text: this.dialogText}
