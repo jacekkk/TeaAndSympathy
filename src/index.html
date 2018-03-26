@@ -20,6 +20,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCadVMsfN6BzSfAn6dkiGyo03tyTNm1rCI"></script>
 <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+<script type="text/javascript" src="../src/assets/js/jquery.condense.js"></script>
 </body>
 
 <!-- script code for nave menu -->
@@ -33,6 +34,41 @@
     document.getElementById('side-menu').style.width = '0';
     document.getElementById('main').style.marginLeft = '0';
   }
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    //example 1: using default options
+    $('#example1').condense();
+
+    //example 2: expand 'fast', condense 'slow', and some other options
+    $('#example2').condense(
+      {
+        moreSpeed: 'fast',
+        lessSpeed: 'slow',
+        moreText: 'show more',
+        lessText: 'show less',
+        ellipsis: " [there's more...]"
+      }
+    );
+
+    //example 4: condense a floated div
+    $('#example3').condense();
+
+    //example 4: just to show the plugin ignoring something too short to condense
+    $('#example4').condense();
+
+    //example 5: options for condensing a shorter element
+    $('#example5').condense(
+      {
+        condensedLength: 40,
+        animate: false
+      }
+    );
+
+    //example 6: condense a li element with metadata.
+    $('#example6').condense();
+  });
 </script>
 
 </html>
