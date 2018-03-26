@@ -1,4 +1,4 @@
-.allItems {
+.allItems{
   width: 90%;
   margin: 50px auto;
 
@@ -16,13 +16,13 @@
 
 }
 
-.singleItem[title] figure img {
+.singleItem[title] figure img{
   width: 100%;
   height: auto;
   margin-top: 1rem;
 }
 
-.allItems .singleItem[title] {
+.allItems .singleItem[title]{
   text-decoration: none;
   padding: 1rem;
   color: #424242;
@@ -38,11 +38,23 @@
   justify-content: center; /* align items in Main Axis */
 }
 
-/* main:hover a[title]:not(:hover){
-  opacity: .6;
+.expand {
+  background: Transparent no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+  outline: none;
+
+  opacity: 0.7;
 }
 
-a[title]:hover{
-  box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
+.expand:focus {
+  border: none;
+  outline: none;
+}
 
-} */
+.button-more-photos {
+  background-color: #41495C;
+  color: #fff !important;
+}

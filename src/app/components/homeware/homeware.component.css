@@ -1,4 +1,4 @@
-main{
+.allItems{
   width: 90%;
   margin:50px auto;
 
@@ -16,13 +16,13 @@ main{
 
 }
 
-a[title] figure img{
+.singleItem[title] figure img{
   width: 100%;
   height: auto;
   margin-top:1rem;
 }
 
-main a[title]{
+.allItems .singleItem[title]{
   text-decoration: none;
   padding: 1rem;
   color:#424242;

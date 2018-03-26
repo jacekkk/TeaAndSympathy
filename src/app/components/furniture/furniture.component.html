@@ -1,27 +1,37 @@
-<mat-tab-group class = "mt-4">
-  <mat-tab label="Buy from us" class ="buy">
-    <main>
-      <p>
-        We source pieces from auction houses and antique markets, locally if possible, and love to find quirky and
-        interesting pieces. Our love of all things antique, well made and authentic, helps us create individual pieces
-        with a rustic or distressed look, built up through layers of painting and waxing, all in natural materials from
-        the Annie Sloane range. We’re always finishing off new pieces so pop into the shop to see what we have.
-      </p>
+<mat-tab-group class="mt-4">
+  <mat-tab label="Buy from us" class="buy">
+    <p>
+      We source pieces from auction houses and antique markets, locally if possible, and love to find quirky and
+      interesting pieces. Our love of all things antique, well made and authentic, helps us create individual pieces
+      with a rustic or distressed look, built up through layers of painting and waxing, all in natural materials from
+      the Annie Sloane range. We’re always finishing off new pieces so pop into the shop to see what we have.
+    </p>
 
-      <a title="Post 1" *ngFor="let furnitureItem of furnitureItems">
-        <article>
+    <div class="allItems">
+      <div class="singleItem" title="Furniture Item" *ngFor="let furnitureItem of furnitureItems">
+        <div>
 
           <figure>
             <img src="{{ furnitureItem.fields.photos[0].fields.file.url }}">
-            <figcaption>{{ furnitureItem.fields.description}}</figcaption>
-            <figcaption>{{ furnitureItem.fields.price}}</figcaption>
+
+            <button class="expand" (click)="toggleTextHeight(furnitureItems.indexOf(furnitureItem))">
+              <span style="display: inline-block; overflow: hidden; max-height: 200px; padding-top: 10px;"
+                    [attr.id]="'text' + furnitureItems.indexOf(furnitureItem)">
+                {{ furnitureItem.fields.description }}</span>
+              <i [attr.id]="'icon' + furnitureItems.indexOf(furnitureItem)" class="fa fa-caret-down" style="display: block;"></i>
+            </button>
+
+            <div style="padding-top: 10px;">Price: £{{ furnitureItem.fields.price }}</div>
           </figure>
 
-          <button (click)="onCardClicked(furnitureItem)">View details</button>
+          <button mat-raised-button class="button-more-photos" (click)="onCardClicked(furnitureItem)">More photos
+          </button>
 
-        </article>
-      </a>
-    </main>
+        </div>
+
+
+      </div>
+    </div>
   </mat-tab>
 
   <mat-tab label="Commission us">
@@ -34,6 +44,8 @@
         Either way, we can chat about what sort of colours and finish you would like, to ensure it will sit perfectly in
         your home. Just drop us an email or give us a call and we can get started.</p>
     </div>
+
     <a mat-raised-button routerLink="/contact" style="margin: 20px;">Contact us</a>
   </mat-tab>
+
 </mat-tab-group>

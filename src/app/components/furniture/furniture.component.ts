@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Entry} from 'contentful';
 import {ContentfulService} from '../../contentful.service';
@@ -15,6 +15,9 @@ export class FurnitureComponent implements OnInit {
   // define private class properties
   private furnitureItems: Entry<any>[] = [];
 
+  full: any;
+  short: any;
+
   constructor(private contentfulService: ContentfulService,
               public dialog: MatDialog) {
   }
@@ -22,6 +25,9 @@ export class FurnitureComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getFurnitureItems()
       .then(furniture => this.furnitureItems = furniture);
+
+/*    this.full.hidden = true;
+    this.short.hidden = false;*/
   }
 
   onCardClicked(furnitureItem: Entry<any>) {
@@ -43,6 +49,20 @@ export class FurnitureComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  toggleTextHeight(id) {
+    let textArea = document.getElementById('text'+id);
+    let icon = document.getElementById('icon'+id);
+
+    if(textArea.style.maxHeight == "200px") {
+      textArea.style.maxHeight = "2000px";
+      icon.className = "fa fa-caret-up";
+    }
+    else {
+      textArea.style.maxHeight = "200px";
+      icon.className = "fa fa-caret-down";
+    }
   }
 }
 
