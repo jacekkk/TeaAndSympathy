@@ -1,6 +1,13 @@
 <mat-tab-group class = "mt-4">
   <mat-tab label="Buy from us" class ="buy">
     <main>
+      <p>
+        We source pieces from auction houses and antique markets, locally if possible, and love to find quirky and
+        interesting pieces. Our love of all things antique, well made and authentic, helps us create individual pieces
+        with a rustic or distressed look, built up through layers of painting and waxing, all in natural materials from
+        the Annie Sloane range. We’re always finishing off new pieces so pop into the shop to see what we have.
+      </p>
+
       <a title="Post 1" *ngFor="let furnitureItem of furnitureItems">
         <article>
 
@@ -16,9 +23,17 @@
       </a>
     </main>
   </mat-tab>
-  <mat-tab label="You Upcycle | We Upcycle">
+
+  <mat-tab label="Commission us">
+    <div>
+      <p>You can either commission us to ‘Tea & Sympathy’ one of your existing pieces of furniture or we can source a
+        piece for you. It might be you want to revamp for an old chest you've had in the loft for years or to bring your
+        grandma’s table back to life. Or perhaps you have your heart set on a new dressing table – you can simply tell
+        us
+        what you would like and we can source something for you from the auction houses and antique markets that we use.
+        Either way, we can chat about what sort of colours and finish you would like, to ensure it will sit perfectly in
+        your home. Just drop us an email or give us a call and we can get started.</p>
+    </div>
     <a mat-raised-button routerLink="/contact" style="margin: 20px;">Contact us</a>
   </mat-tab>
 </mat-tab-group>
-
-
