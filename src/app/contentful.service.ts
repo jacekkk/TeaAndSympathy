@@ -15,7 +15,8 @@ const CONFIG = {
     landingFurniture : 'landingFurniture',
     landingHomeware : 'landingHomeware',
     photeHome: 'headingPhotoHome',
-    menuDrinks: 'menuDrinks'
+    menuDrinks: 'menuDrinks',
+    menuFood: 'menuFood'
   }
 };
 
@@ -104,6 +105,15 @@ export class ContentfulService {
     }, query))
       .then(res => res.items);
   }
+
+
+  // fetch items with a given slug
+  // and return one of them
+  getHomewareItem(slug: string): Promise<Entry<any>> {
+    return this.getHomewareItems({ 'fields.slug': slug })
+    .then(items => items[0])
+  }
+
   getMenuDrinks(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.menuDrinks
@@ -111,11 +121,11 @@ export class ContentfulService {
       .then(res => res.items);
   }
 
-  // fetch items with a given slug
-  // and return one of them
-  getHomewareItem(slug: string): Promise<Entry<any>> {
-    return this.getHomewareItems({ 'fields.slug': slug })
-    .then(items => items[0])
+  getMenuFood(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.menuFood
+    }, query))
+      .then(res => res.items);
   }
 
     // return a custom config if available
