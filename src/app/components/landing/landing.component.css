@@ -10,7 +10,18 @@
   p{
 
     font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    
 
+  }
+  p.thicker {
+    font-weight: 5000;
+}
+
+  .lead{
+
+      line-height: 2.2;
+  
   }
 
   .row {
@@ -26,6 +37,15 @@
   @media (min-width: 62em){
 
 .featurette-heading[_ngcontent-c4] {
+    margin-top: 0rem;
+  
+  }
+
+}
+
+@media (min-width: 62em){
+
+.featurette-heading[_ngcontent-c11] {
     margin-top: 0rem;
 }
 }
@@ -44,7 +64,7 @@
     font-weight: 300;
     line-height: 2;
     letter-spacing: -.10rem;
-    margin-bottom: 10px
+    margin-bottom: 5px
   }
   
   

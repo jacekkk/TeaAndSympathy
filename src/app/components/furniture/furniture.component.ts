@@ -3,11 +3,13 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Entry} from 'contentful';
 import {ContentfulService} from '../../contentful.service';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'furniture',
   templateUrl: './furniture.component.html',
-  styleUrls: ['./furniture.component.css']
+  styleUrls: ['./furniture.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FurnitureComponent implements OnInit {
   // define private class properties
