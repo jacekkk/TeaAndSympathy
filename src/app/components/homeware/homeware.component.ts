@@ -3,11 +3,13 @@ import {ContentfulService} from '../../contentful.service';
 import {Entry} from 'contentful';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'homeware',
   templateUrl: './homeware.component.html',
-  styleUrls: ['./homeware.component.css']
+  styleUrls: ['./homeware.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomewareComponent implements OnInit {
   // define private class properties

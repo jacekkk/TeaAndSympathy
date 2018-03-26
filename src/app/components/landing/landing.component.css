@@ -34,7 +34,7 @@
     margin-left: -15px;
 }
 
-  @media (min-width: 62em){
+@media (min-width: 62em){
 
 .featurette-heading[_ngcontent-c4] {
     margin-top: 0rem;
@@ -49,7 +49,20 @@
     margin-top: 0rem;
 }
 }
+
+@media (min-width: 62em){
+
+  .featurette-heading[_ngcontent-c10] {
+      margin-top: 0rem;
+  }
+  }
   
+  @media (min-width: 62em){
+
+  .featurette-heading[_ngcontent-c10] {
+        margin-top: 0rem;
+  }
+  }
   
   /* Featurettes
   ------------------------- */

@@ -34,6 +34,10 @@ main a[title]{
   /* transition: all .3s cubic-bezier(0.25, .8, .25, 1); */
 }
 
+.mat-tab-labels{
+  justify-content: center; /* align items in Main Axis */
+}
+
 /* main:hover a[title]:not(:hover){
   opacity: .6;
 } */
