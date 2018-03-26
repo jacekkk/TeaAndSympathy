@@ -16,14 +16,9 @@
     background-color: rgba(255, 255, 255, 0);
 
 }
-/* .container {
 
-    width: 90%;
-    margin: 1em auto;
-    
-    padding: .3em .6em;
-    
-  } */
+
+
   #item-header{
 
     text-align: left;
@@ -89,5 +84,10 @@
   div {
     font-family: 'Raleway', sans-serif;
   }
+
+  div.container.menu
+{
+  padding-right: 4em;
+ }
   
 
