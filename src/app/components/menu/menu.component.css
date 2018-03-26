@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
+}
+
 .card-header{
 
     border: 0cm;

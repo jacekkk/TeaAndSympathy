@@ -14,7 +14,8 @@ const CONFIG = {
     landing: 'landingContent',
     landingFurniture : 'landingFurniture',
     landingHomeware : 'landingHomeware',
-    photeHome: 'headingPhotoHome'
+    photeHome: 'headingPhotoHome',
+    menuDrinks: 'menuDrinks'
   }
 };
 
@@ -100,6 +101,12 @@ export class ContentfulService {
   getFurnitureItems(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.furniture
+    }, query))
+      .then(res => res.items);
+  }
+  getMenuDrinks(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.menuDrinks
     }, query))
       .then(res => res.items);
   }
