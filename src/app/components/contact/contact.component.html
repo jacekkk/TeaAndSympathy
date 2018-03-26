@@ -114,7 +114,9 @@
 
           <!--BUTTON-->
           <div>
-            <button mat-raised-button class="send-button" (click)="onSend()">{{ sendButtonText }}</button>
+            <button mat-raised-button class="send-button" (click)="onSend()">
+              <i class='fa fa-circle-o-notch fa-spin' id="spinner"></i> {{ sendButtonText }}
+            </button>
           </div>
         </mat-card>
       </form>
