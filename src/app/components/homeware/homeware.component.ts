@@ -13,7 +13,7 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class HomewareComponent implements OnInit {
   // define private class properties
-  private homewareItems: Entry<any>[] = [];
+ private homewareItems: Entry<any>[] = []; 
 
   constructor(private contentfulService: ContentfulService,
               public dialog: MatDialog) {
