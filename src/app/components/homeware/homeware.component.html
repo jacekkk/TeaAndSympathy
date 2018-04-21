@@ -4,8 +4,15 @@
 
       <figure>
         <img src="{{ homewareItem.fields.photos[0].fields.file.url }}">
-        <div>{{ homewareItem.fields.description }}</div>
-        <div>£{{ homewareItem.fields.price }}</div>
+
+        <button class="expand" (click)="toggleTextHeight(homewareItems.indexOf(homewareItem))">
+              <span style="display: inline-block; overflow: hidden; max-height: 200px; padding-top: 10px;"
+                    [attr.id]="'text' + homewareItems.indexOf(homewareItem)">
+                {{ homewareItem.fields.description }}</span>
+          <i [attr.id]="'icon' + homewareItems.indexOf(homewareItem)" class="fa fa-caret-down" style="display: block;"></i>
+        </button>
+
+        <div style="padding-top: 10px;">Price: £{{ homewareItem.fields.price }}</div>
       </figure>
 
       <button (click)="onCardClicked(homewareItem)">More photos</button>
