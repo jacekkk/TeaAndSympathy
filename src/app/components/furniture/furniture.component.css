@@ -16,6 +16,11 @@
 
 }
 
+@font-face {
+  font-family: 'Raleway';
+  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
+}
+
 .singleItem[title] figure img{
   width: 100%;
   height: auto;
@@ -57,4 +62,12 @@
 .button-more-photos {
   background-color: #41495C;
   color: #fff !important;
+}
+
+.info-text p {
+
+  font-family: 'Raleway', sans-serif;
+  display: inline-block;
+  line-height: 2.1;
+
 }
