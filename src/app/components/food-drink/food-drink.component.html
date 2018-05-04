@@ -1,4 +1,7 @@
-<div class ="container menu" >
+<div class = "container mt-4 mb-3">
+  <h1 class ="menu mt-3">Menu</h1>
+</div>
+<div class ="container menu pl-5" >
   <h2 class="display-5 text-center text-white overflow-hidden" style="padding-bottom:10px;"></h2>
       <div id="accordion">
       <div class="card" id ="card-format">
@@ -10,7 +13,7 @@
         <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordion" id="collapseOne">
           <div class="card-body">
             <div class="container">
-              <div class="row" *ngFor="let row of menuDrinks" >
+              <div class="row drink" *ngFor="let row of menuDrinks" >
                 <div class="col" id ="item">
                   {{row.fields.item}}
                   <hr>
@@ -37,7 +40,7 @@
       <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordion" id="collapseTwo">
         <div class="card-body">
           <div class="container">
-            <div class="row" *ngFor="let row of menuFood">
+            <div class="row food" *ngFor="let row of menuFood">
               <div class="col" id ="item">
                 {{row.fields.item}}
                 <hr>
@@ -58,3 +61,6 @@
 </div>
 </div>
 </div>
+<div class = "container mt-4 mb-3">
+    <h1 class ="menu mt-3">Suppliers</h1>
+  </div>
