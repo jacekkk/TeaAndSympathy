@@ -45,6 +45,20 @@ export class HomewareComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  toggleTextHeight(id) {
+    let textArea = document.getElementById('text'+id);
+    let icon = document.getElementById('icon'+id);
+
+    if(textArea.style.maxHeight == "200px") {
+      textArea.style.maxHeight = "2000px";
+      icon.className = "fa fa-caret-up";
+    }
+    else {
+      textArea.style.maxHeight = "200px";
+      icon.className = "fa fa-caret-down";
+    }
+  }
 }
 
 // dialog component

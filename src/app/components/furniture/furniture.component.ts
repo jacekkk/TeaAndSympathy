@@ -15,9 +15,6 @@ export class FurnitureComponent implements OnInit {
   // define private class properties
   private furnitureItems: Entry<any>[] = [];
 
-  full: any;
-  short: any;
-
   constructor(private contentfulService: ContentfulService,
               public dialog: MatDialog) {
   }
@@ -25,9 +22,6 @@ export class FurnitureComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getFurnitureItems()
       .then(furniture => this.furnitureItems = furniture);
-
-/*    this.full.hidden = true;
-    this.short.hidden = false;*/
   }
 
   onCardClicked(furnitureItem: Entry<any>) {
