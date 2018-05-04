@@ -98,3 +98,12 @@
     .food{ font-size: 12px;}
     .drink{ font-size: 12px;}
   }
+
+  .info-text p {
+
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    line-height: 2.1;
+  
+  }
+  

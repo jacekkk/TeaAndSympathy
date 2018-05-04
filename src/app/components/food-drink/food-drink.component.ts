@@ -11,6 +11,7 @@ export class FoodDrinkComponent implements OnInit {
 
   private menuFood: Entry<any>[] = [];
   private menuDrinks: Entry<any>[] = [];
+  private suppliersText: Entry<any>[] = [];
 
   constructor(private contentfulService: ContentfulService) { }
 
@@ -22,6 +23,12 @@ export class FoodDrinkComponent implements OnInit {
      
     this.contentfulService.getMenuFood()
     .then(menuFood => this.menuFood = menuFood);
+
+    this.contentfulService.getSuppliersDesc()
+    .then(suppliersText => this.suppliersText = suppliersText);
   }
+  
+
+ 
 
 }
