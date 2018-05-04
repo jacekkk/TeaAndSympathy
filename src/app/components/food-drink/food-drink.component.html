@@ -70,3 +70,18 @@
           {{text.fields.description}}
       </p>
     </div>
+
+    <div class="allItems">
+        <div class="singleItem" title="Furniture Item" *ngFor="let photo of suppliersPhoto">
+          <div>
+  
+            <figure>
+              <img src="{{ photo.fields.photo.fields.file.url }}">
+  
+            </figure>
+  
+          </div>
+  
+  
+        </div>
+      </div>
