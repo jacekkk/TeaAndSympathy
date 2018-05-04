@@ -45,6 +45,8 @@ import { DropZoneDirective } from './drop-zone.directive';
 import { HeadingComponent } from './components/heading/heading.component';
 
 import { RouterLinkActive } from '@angular/router';
+import { MdToHtmlPipe } from './md-to-html.pipe';
+import { FoodDrinkComponent } from './components/food-drink/food-drink.component';
 
 
 
@@ -82,7 +84,7 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
-import { MdToHtmlPipe } from './md-to-html.pipe';
+
 
 
 
@@ -91,6 +93,7 @@ const appRoutes: Routes = [
   {path: 'landing', component: LandingComponent},
   {path: 'suppliers', component: SuppliersComponent},
   {path: 'menu', component: MenuComponent},
+  {path: 'food', component: FoodDrinkComponent},
   {path: 'furniture', component: FurnitureComponent},
   {path: 'homeware', component: HomewareComponent},
   {path: 'homeware/:slug', component: ProductdetailComponent },
@@ -118,6 +121,7 @@ const appRoutes: Routes = [
     DropZoneDirective,
     HeadingComponent,
     MdToHtmlPipe,
+    FoodDrinkComponent,
    
 
   ],
