@@ -13,15 +13,17 @@
                 <div class="row" *ngFor="let row of menuDrinks" >
                   <div class="col" id ="item">
                     {{row.fields.item}}
+                    <hr>
                   </div>
                   <div class="col" id ="description">
                     {{row.fields.description}}
+                    <hr>
                   </div>
                   <div class="col" id ="price">
                     £ {{row.fields.price}}
+                    <hr>
                   </div>
                 </div>
-                <hr >
               </div>
             </div>
           </div>
@@ -38,15 +40,18 @@
               <div class="row" *ngFor="let row of menuFood">
                 <div class="col" id ="item">
                   {{row.fields.item}}
+                  <hr>
                 </div>
                 <div class="col" id ="description">
                   {{row.fields.description}}
+                  <hr>
                 </div>
                 <div class="col" id ="price">
                  £ {{row.fields.price}}
+                 <hr>
                 </div>
               </div>
-              <hr >
+       
             </div>
           </div>
         </div>
