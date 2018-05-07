@@ -1,0 +1,7 @@
+<mat-dialog-content>
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let photo of data.photos">
+      <img src="{{ photo.fields.file.url }}" alt="Item gallery">
+    </ng-template>
+  </ngb-carousel>
+</mat-dialog-content>

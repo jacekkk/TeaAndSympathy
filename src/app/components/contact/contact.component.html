@@ -1,0 +1,195 @@
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+  <div class="mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-1 py-3">
+      <h2 class="display-5" style="padding-bottom: 10px; color: black;">GET IN TOUCH</h2>
+      <form>
+        <mat-card>
+          <!--SUBJECT FIELD-->
+          <div>
+            <mat-form-field class="example-full-width"
+                            [hideRequiredMarker]="options.value.hideRequired"
+                            [floatLabel]="options.value.floatLabel">
+              <mat-select name="subject" [(ngModel)]="message.subject">
+                <mat-option value="Cafe">Cafe</mat-option>
+                <mat-option value="Furniture">Furniture</mat-option>
+                <mat-option value="Homeware">Homeware</mat-option>
+                <mat-option value="Other">Other</mat-option>
+              </mat-select>
+              <mat-placeholder>Enquiry subject</mat-placeholder>
+            </mat-form-field>
+          </div>
+
+          <!--NAME FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Name" [formControl]="nameFormControl"
+                     [errorStateMatcher]="matcher" name="name"
+                     [(ngModel)]="message.name">
+              <mat-error *ngIf="nameFormControl.hasError('pattern') && !nameFormControl.hasError('required')">
+                Please enter your full name
+              </mat-error>
+              <mat-error *ngIf="nameFormControl.hasError('maxlength')">
+                Name is <strong>too long</strong>
+              </mat-error>
+              <mat-error *ngIf="nameFormControl.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!--EMAIL FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email" [formControl]="emailFormControl"
+                     [errorStateMatcher]="matcher" name="email"
+                     [(ngModel)]="message.email">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('maxlength')">
+                Email is <strong>too long</strong>
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!--PHONE NUMBER FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Phone number (optional)" [formControl]="phoneFormControl"
+                     [errorStateMatcher]="matcher" name="phone"
+                     [(ngModel)]="message.phone">
+              <mat-error *ngIf="phoneFormControl.hasError('pattern')">
+                Please enter a valid phone number
+              </mat-error>
+              <mat-error *ngIf="phoneFormControl.hasError('maxlength')">
+                Phone number is <strong>too long</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!--MESSAGE FIELD-->
+          <div>
+            <mat-form-field class="example-full-width">
+  <textarea matInput placeholder="Message" [formControl]="messageFormControl" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5" name="message"
+            [(ngModel)]="message.body"></textarea>
+              <mat-error *ngIf="messageFormControl.hasError('maxlength')">
+                Message is <strong>too long</strong>
+              </mat-error>
+              <mat-error *ngIf="messageFormControl.hasError('required')">
+                Message is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!--IMAGE UPLOADER-->
+          <div class="dropzone" id="dropzone" dropZone (dropped)="getFiles($event)">
+            <div class="container-fluid">
+              <div class="row" style="display: inline-flex; vertical-align: middle; line-height: normal; width: 100%;">
+                <div class="col">
+                  <input class="file-input" type="file" style="max-width: 200px; overflow: hidden;"
+                         (change)="getFiles($event.target.files)">
+                  <span class="file-cta"></span>
+                </div>
+                <div class="col">
+                  <div class="file-icon">
+                    <i class="fa fa-upload"></i>
+                    <span style="padding-left: 20px;">or drop a file</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div #uploadResponse style="line-height: normal; padding-bottom: 10px;"></div>
+          </div>
+
+          <!--CAPTCHA-->
+          <br>
+          <div class="grecaptcha">
+            <re-captcha site_key="6LcPSkQUAAAAAIqJO5xs1ZPO1tmp2VWNvdKO12u8"></re-captcha>
+          </div>
+          <br>
+
+          <!--BUTTON-->
+          <div>
+            <button mat-raised-button class="send-button" (click)="onSend()">
+              <i class='fa fa-circle-o-notch fa-spin' id="spinner"></i> {{ sendButtonText }}
+            </button>
+          </div>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+
+  <!--WHERE ARE WE-->
+  <div class=" mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center overflow-hidden">
+    <div class="my-1 p-3">
+      <h2 class="display-5" style="padding-bottom: 10px;">COME AND SEE US</h2>
+      <div>
+        <mat-card>
+          <div class="info">
+            <div class="cafe-name">Tea & Sympathy Edinburgh</div>
+            <div class="cafe-info">
+              <a><i class="material-icons">home</i></a>
+              <span class="cafe-details">1E Ashley Terrace<br>EH11 1RF Edinburgh<br>United Kingdom</span>
+            </div>
+            <div class="cafe-info">
+              <a><i class="material-icons">phone</i></a>
+              <span class="cafe-details">0131 337 2467</span>
+            </div>
+            <div class="cafe-info">
+              <a><i class="material-icons">access_time</i></a>
+              <span class="cafe-details">Opening Times</span>
+            </div>
+
+            <!--OPENING TIMES TABLE-->
+            <div class="container" style="padding-top: 10px;">
+              <div class="row">
+                <div class="col-12">
+                  <table class="opening-times" cellpadding="5" width="100%">
+                    <tr>
+                      <td class="first col-6">Monday</td>
+                      <td class="last col-6">8am - 4:30pm</td>
+                    </tr>
+                    <tr>
+                      <td class="first">Tuesday</td>
+                      <td class="last">8am - 4:30pm</td>
+                    </tr>
+                    <tr>
+                      <td class="first">Wednesday</td>
+                      <td class="last">8am - 4:30pm</td>
+                    </tr>
+                    <tr>
+                      <td class="first">Thursday</td>
+                      <td class="last">8am - 4:30pm</td>
+                    </tr>
+                    <tr>
+                      <td class="first">Friday</td>
+                      <td class="last">8am - 4:30pm</td>
+                    </tr>
+                    <tr>
+                      <td class="first">Saturday</td>
+                      <td class="last">9am - 5pm</td>
+                    </tr>
+                    <tr>
+                      <td>Sunday</td>
+                      <td class="last-bottom">9am - 5pm</td>
+                    </tr>
+                  </table>
+                  <div class="mt-5 pb-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--MAPS-->
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="map-container">
+  <div id="map"></div>
+</div>

@@ -1,4 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css"; 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
 
-/* gets bootstrap for npm module */
+@font-face {
+  font-family: 'Raleway', sans-serif;
+}
+
+div{
+  font-family: "Raleway", sans-serif;
+}
+
+p{
+  font-family: "Raleway", sans-serif;
+}
+
+button.mat-menu-item {
+  line-height: 24px !important;
+}
+
+a.mat-menu-item > mat-icon {
+  margin-bottom: 14px;
+}
+
+.mat-icon {
+  font-size: 24px;
+}
+
+.bg {
+  height: 95vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  min-width: 300px;
+}
+
+#slide-main {
+  transition: margin-left 1s;
+  overflow: hidden;
+  width: 100%;
+}
+
+

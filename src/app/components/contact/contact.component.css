@@ -1,0 +1,167 @@
+.example-container {
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+}
+
+.example-container > * {
+  width: 50%;
+}
+
+.example-container form {
+
+  margin: 0 auto;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 5px;
+}
+
+.example-full-width {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  width: 100%;
+}
+
+.alert {
+  text-align: center;
+  padding: 10px;
+  background: #79c879;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.flex-equal > * {
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1;
+  }
+}
+
+.send-button {
+  background-color: #41495C;
+  color: #fff;
+}
+
+.grecaptcha {
+  width: desired_width;
+  overflow: hidden;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+#map-container {
+  height: 50vh;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: grey;
+}
+
+img.front {
+  width: 100%;
+  height: auto;
+}
+
+.cafe-name {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.material-icons {
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+.cafe-info {
+  width: auto;
+  display: table;
+}
+
+a, .cafe-details {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 20px;
+}
+
+td {
+  padding: 10px;
+}
+
+.first {
+  padding-right: 20px;
+  width: auto;
+  border-bottom: 2px groove lightgrey;
+}
+
+.last {
+  padding-left: 20px;
+  border-bottom: 2px groove lightgrey;
+  width: available;
+  text-align: right;
+}
+
+.last-bottom {
+  padding-left: 20px;
+  text-align: right;
+}
+
+.dropzone {
+  height: auto;
+  line-height: 15vh;
+  text-align: center;
+  border: 1px dotted #41495C;
+  border-radius: 3px;
+  background: white;
+}
+
+.dropzone.dragover {
+  border: 2px dotted black;
+  background-color: lightgrey;
+}
+
+.file-icon {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.col {
+  margin: auto;
+}

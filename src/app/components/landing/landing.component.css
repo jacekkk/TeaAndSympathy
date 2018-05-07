@@ -1,0 +1,92 @@
+p {
+  font-family: "Raleway", sans-serif;
+  display: inline-block;
+}
+
+.marketing h2 {
+  font-weight: 400;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.lead {
+  line-height: 2.2;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: 10px;
+  margin-left: -15px;
+}
+
+@media (min-width: 62em) {
+
+  .featurette-heading[_ngcontent-c4] {
+    margin-top: 0rem;
+
+  }
+
+}
+
+@media (min-width: 62em) {
+
+  .featurette-heading[_ngcontent-c11] {
+    margin-top: 0rem;
+  }
+}
+
+@media (min-width: 62em) {
+
+  .featurette-heading[_ngcontent-c10] {
+    margin-top: 0rem;
+  }
+}
+
+@media (min-width: 62em) {
+
+  .featurette-heading[_ngcontent-c10] {
+    margin-top: 0rem;
+  }
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: -.10rem;
+  margin-bottom: 5px
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<div class="container marketing">
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette" *ngFor="let landing of landingContent">
+          <div class="col-md-7 col-sm-12 order-md-1">
+            <h2 class="featurette-heading"><span class="text-muted">Cafe</span></h2>
+            <p class="lead" [innerHTML]= "landing.fields.description | mdToHtml"></p>
+          </div>
+          <div class="col-md-5 col-sm-12 order-md-1">
+            <img class="featurette-image img-fluid" src= "{{ landing.fields.photo.fields.file.url }}"alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette" *ngFor="let furniture of landingFurniture">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading"><span class="text-muted">Furniture</span></h2>
+            <p class="lead" [innerHTML]= "furniture.fields.description | mdToHtml"></p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" src=" {{ furniture.fields.photo.fields.file.url }}" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider" >
+
+        <div class="row featurette" *ngFor="let homeware of landingHomeware">
+          <div class="col-md-7">
+            <h2 class="featurette-heading"><span class="text-muted">Homeware</span></h2>
+            <p class="lead" [innerHTML]= "homeware.fields.description | mdToHtml"></p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="{{homeware.fields.photos.fields.file.url }}" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div>
+
+
+
+
