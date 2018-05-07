@@ -1,4 +1,4 @@
-.allItems{
+.allItems {
   width: 90%;
   margin: 50px auto;
 
@@ -16,18 +16,13 @@
 
 }
 
-@font-face {
-  font-family: 'Raleway';
-  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
-}
-
-.singleItem[title] figure img{
+.singleItem[title] figure img {
   width: 100%;
   height: auto;
   margin-top: 1rem;
 }
 
-.allItems .singleItem[title]{
+.allItems .singleItem[title] {
   text-decoration: none;
   padding: 1rem;
   color: #424242;
@@ -39,7 +34,7 @@
   /* transition: all .3s cubic-bezier(0.25, .8, .25, 1); */
 }
 
-.mat-tab-labels{
+.mat-tab-labels {
   justify-content: center; /* align items in Main Axis */
 }
 
@@ -65,9 +60,6 @@
 }
 
 .info-text p {
-
-  font-family: 'Raleway', sans-serif;
   display: inline-block;
   line-height: 2.1;
-
 }

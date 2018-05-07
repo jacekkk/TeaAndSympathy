@@ -1,22 +1,28 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 
-/* gets bootstrap for npm module */
+@font-face {
+  font-family: 'Raleway', sans-serif;
+}
 
-/*@font-face {
-  font-family: 'Raleway';
-  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
-}*/
+div{
+  font-family: "Raleway", sans-serif;
+}
+
+p{
+  font-family: "Raleway", sans-serif;
+}
 
 button.mat-menu-item {
   line-height: 24px !important;
 }
+
 a.mat-menu-item > mat-icon {
   margin-bottom: 14px;
 }
 
-.mat-icon{
-  font-size:24px;
+.mat-icon {
+  font-size: 24px;
 }
 
 .bg {
@@ -38,11 +44,5 @@ body {
   overflow: hidden;
   width: 100%;
 }
-
-/*div {
-  font-family: 'Raleway', sans-serif;
-}*/
-
-/* slide-main moves compontnet to the right when nav bar opens */
 
 

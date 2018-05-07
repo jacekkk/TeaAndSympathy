@@ -1,3 +1,16 @@
+<div class="container mt-4 info-text">
+  <p>
+    To complement our furniture, we have hand picked a selection of quality lifestyle brands and artists offering
+    homeware, gifts, artwork, jewellery & greeting cards. Please contact us or pop in to the shop if you are interested
+    in buying any of them and we will be delighted to help you.
+  </p>
+</div>
+
+<div *ngIf="homewareItems.length == 0" class="container mt-4 info-text"
+     style="text-align: center; margin-top: 20px; font-weight: bold;">Oops... Nothing to show.
+  Please keep an eye on this page as we regularly add new products.
+</div>
+
 <div class="allItems">
   <div class="singleItem" title="Homeware Item" *ngFor="let homewareItem of homewareItems">
     <div>
@@ -9,7 +22,8 @@
               <span style="display: inline-block; overflow: hidden; max-height: 200px; padding-top: 10px;"
                     [attr.id]="'text' + homewareItems.indexOf(homewareItem)">
                 {{ homewareItem.fields.description }}</span>
-          <i [attr.id]="'icon' + homewareItems.indexOf(homewareItem)" class="fa fa-caret-down" style="display: block;"></i>
+          <i [attr.id]="'icon' + homewareItems.indexOf(homewareItem)" class="fa fa-caret-down"
+             style="display: block;"></i>
         </button>
 
         <div style="padding-top: 10px;">Price: £{{ homewareItem.fields.price }}</div>
@@ -20,5 +34,3 @@
     </div>
   </div>
 </div>
-
- 

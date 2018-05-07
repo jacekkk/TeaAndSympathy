@@ -1,93 +1,77 @@
-@font-face {
-  font-family: 'Raleway';
-  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
+.card-header {
+
+  border: 0cm;
 }
-
-.card-header{
-
-    border: 0cm;
-}
-
-
 
 #heading {
 
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
 
 }
 
+#item-header {
 
-
-  #item-header{
-
-    text-align: left;
-    margin-left: 10px;
+  text-align: left;
+  margin-left: 10px;
 }
 
-  #description-header {
+#description-header {
 
-    text-align: center;
+  text-align: center;
 }
 
+#price-header {
 
-  #price-header {
-
-    text-align: right;
-    margin-right: 10px;
+  text-align: right;
+  margin-right: 10px;
 }
 
-#item{
+#item {
 
-    text-align: left;
-    margin-left: 10px;
+  text-align: left;
+  margin-left: 10px;
 }
 
-  #description {
+#description {
 
-    text-align: center;
+  text-align: center;
 }
 
+#price {
 
-  #price {
-
-    text-align: right;
-    margin-right: 10px;
+  text-align: right;
+  margin-right: 10px;
 }
 
 .border-top {
-    border-top: 1px solid #e5e5e5;
-  }
-  
-  .border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-  }
-  
-  .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-  }
-  
-  .flex-equal > * {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.flex-equal > * {
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .flex-md-equal > * {
     -ms-flex: 1;
     -webkit-box-flex: 1;
     flex: 1;
   }
-  
-  @media (min-width: 768px) {
-    .flex-md-equal > * {
-      -ms-flex: 1;
-      -webkit-box-flex: 1;
-      flex: 1;
-    }
-  }
+}
 
-  div {
-    font-family: 'Raleway', sans-serif;
-  }
-
-  div.container.menu
-{
+div.container.menu {
   padding-right: 4em;
- }
-  
+}
+
 

@@ -3,7 +3,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Entry} from 'contentful';
 import {ContentfulService} from '../../contentful.service';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
-import { ViewEncapsulation } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
+import {AfterViewChecked} from '@angular/core';
 
 @Component({
   selector: 'furniture',
@@ -11,7 +12,8 @@ import { ViewEncapsulation } from '@angular/core';
   styleUrls: ['./furniture.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class FurnitureComponent implements OnInit {
+
+export class FurnitureComponent implements OnInit, AfterViewChecked {
   // define private class properties
   private furnitureItems: Entry<any>[] = [];
 
@@ -22,6 +24,28 @@ export class FurnitureComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getFurnitureItems()
       .then(furniture => this.furnitureItems = furniture);
+
+    console.log('onInit');
+  }
+
+  ngAfterViewChecked() {
+    for (let furnitureItem of this.furnitureItems) {
+      let id = this.furnitureItems.indexOf(furnitureItem);
+
+      let textArea = document.getElementById('text' + id);
+      let icon = document.getElementById('icon' + id);
+
+      let scrollHeight = textArea.scrollHeight;
+      let offsetHeight = textArea.offsetHeight;
+
+      console.log('Scroll height: ' + scrollHeight);
+      console.log('Offset height: ' + offsetHeight);
+
+      if (scrollHeight == offsetHeight && scrollHeight < 200) {
+        console.log('this one hidden');
+        icon.hidden = true;
+      }
+    }
   }
 
   onCardClicked(furnitureItem: Entry<any>) {
@@ -38,7 +62,8 @@ export class FurnitureComponent implements OnInit {
     });
 
     // scale the dialog automatically
-     dialogRef.updateSize('auto', 'auto');
+
+    dialogRef.updateSize('auto', 'auto');
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -46,16 +71,16 @@ export class FurnitureComponent implements OnInit {
   }
 
   toggleTextHeight(id) {
-    let textArea = document.getElementById('text'+id);
-    let icon = document.getElementById('icon'+id);
+    let textArea = document.getElementById('text' + id);
+    let icon = document.getElementById('icon' + id);
 
-    if(textArea.style.maxHeight == "200px") {
-      textArea.style.maxHeight = "2000px";
-      icon.className = "fa fa-caret-up";
+    if (textArea.style.maxHeight == '200px') {
+      textArea.style.maxHeight = '2000px';
+      icon.className = 'fa fa-caret-up';
     }
     else {
-      textArea.style.maxHeight = "200px";
-      icon.className = "fa fa-caret-down";
+      textArea.style.maxHeight = '200px';
+      icon.className = 'fa fa-caret-down';
     }
   }
 }

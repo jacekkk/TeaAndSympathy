@@ -6,7 +6,7 @@
 
         <div class="row featurette" *ngFor="let landing of landingContent">
           <div class="col-md-7 col-sm-12 order-md-1">
-            <h1 class="featurette-heading"><span class="text-muted">Cafe</span></h1>
+            <h2 class="featurette-heading"><span class="text-muted">Cafe</span></h2>
             <p class="lead" [innerHTML]= "landing.fields.description | mdToHtml"></p>
           </div>
           <div class="col-md-5 col-sm-12 order-md-1">
@@ -18,7 +18,7 @@
 
         <div class="row featurette" *ngFor="let furniture of landingFurniture">
           <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Furniture</h2>
+            <h2 class="featurette-heading"><span class="text-muted">Furniture</span></h2>
             <p class="lead" [innerHTML]= "furniture.fields.description | mdToHtml"></p>
           </div>
           <div class="col-md-5 order-md-1">

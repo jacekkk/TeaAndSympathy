@@ -13,7 +13,7 @@ import {AngularFireStorageModule} from 'angularfire2/storage';
 import {DialogContactForm} from './components/contact/contact.component';
 import {DialogHomewareProduct} from './components/homeware/homeware.component';
 import {DialogFurnitureProduct} from './components/furniture/furniture.component';
-import { ContentfulService } from './contentful.service';
+import {ContentfulService} from './contentful.service';
 
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
@@ -22,11 +22,7 @@ import {LandingComponent} from './components/landing/landing.component';
 import {FurnitureComponent} from './components/furniture/furniture.component';
 import {HomewareComponent} from './components/homeware/homeware.component';
 import {ContactComponent} from './components/contact/contact.component';
-import {CafeComponent} from './components/cafe/cafe.component';
-import {SuppliersComponent} from './components/suppliers/suppliers.component';
 import {MenuComponent} from './components/menu/menu.component';
-
-import {ProductdetailComponent} from './productdetail/productdetail.component';
 
 import {MatFormFieldModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -38,17 +34,15 @@ import {MessageService} from './logic/MessageService';
 
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
-import {FlexLayoutModule } from '@angular/flex-layout';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
-import { ReCaptchaModule } from 'angular2-recaptcha';
-import { DropZoneDirective } from './drop-zone.directive';
-import { HeadingComponent } from './components/heading/heading.component';
+import {ReCaptchaModule} from 'angular2-recaptcha';
+import {DropZoneDirective} from './drop-zone.directive';
+import {HeadingComponent} from './components/heading/heading.component';
 
-import { RouterLinkActive } from '@angular/router';
-import { MdToHtmlPipe } from './md-to-html.pipe';
-import { FoodDrinkComponent } from './components/food-drink/food-drink.component';
-
-
+import {RouterLinkActive} from '@angular/router';
+import {MdToHtmlPipe} from './md-to-html.pipe';
+import {FoodDrinkComponent} from './components/food-drink/food-drink.component';
 
 
 import {
@@ -86,17 +80,13 @@ import {
 } from '@angular/material';
 
 
-
-
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  {path: '', redirectTo: 'landing', pathMatch: 'full'},
   {path: 'landing', component: LandingComponent},
-  {path: 'suppliers', component: SuppliersComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'food', component: FoodDrinkComponent},
   {path: 'furniture', component: FurnitureComponent},
   {path: 'homeware', component: HomewareComponent},
-  {path: 'homeware/:slug', component: ProductdetailComponent },
   {path: 'contact', component: ContactComponent}
 ];
 
@@ -109,20 +99,16 @@ const appRoutes: Routes = [
     FurnitureComponent,
     HomewareComponent,
     ContactComponent,
-    CafeComponent,
-    SuppliersComponent,
     MenuComponent,
-   
     MenuComponent,
     DialogContactForm,
     DialogHomewareProduct,
     DialogFurnitureProduct,
-    ProductdetailComponent,
     DropZoneDirective,
     HeadingComponent,
     MdToHtmlPipe,
     FoodDrinkComponent,
-   
+
 
   ],
   imports: [
@@ -175,7 +161,7 @@ const appRoutes: Routes = [
     AngularFireStorageModule,
     FlexLayoutModule,
     ReCaptchaModule,
-    
+
   ],
   providers: [MessageService, ContentfulService],
   bootstrap: [AppComponent],

@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Raleway';
-  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
-}
-
-h2{
-
-  font-family: 'Raleway';
-}
 .example-container {
   padding: 3%;
   display: flex;

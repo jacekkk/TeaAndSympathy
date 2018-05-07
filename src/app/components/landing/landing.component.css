@@ -1,106 +1,92 @@
-@font-face {
-  font-family: 'Raleway';
-  src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
-}
-  .marketing h2 {
-    font-weight: 400;
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  }
-
-  p{
-
-    font-family: 'Raleway', sans-serif;
-    display: inline-block;
-    
-
-  }
-  p.thicker {
-    font-weight: 5000;
+p {
+  font-family: "Raleway", sans-serif;
+  display: inline-block;
 }
 
-  .lead{
-
-      line-height: 2.2;
-  
-  }
-
-  .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: 10px;
-    margin-left: -15px;
+.marketing h2 {
+  font-weight: 400;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
-@media (min-width: 62em){
+.lead {
+  line-height: 2.2;
+}
 
-.featurette-heading[_ngcontent-c4] {
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: 10px;
+  margin-left: -15px;
+}
+
+@media (min-width: 62em) {
+
+  .featurette-heading[_ngcontent-c4] {
     margin-top: 0rem;
-  
+
   }
 
 }
 
-@media (min-width: 62em){
+@media (min-width: 62em) {
 
-.featurette-heading[_ngcontent-c11] {
+  .featurette-heading[_ngcontent-c11] {
     margin-top: 0rem;
-}
+  }
 }
 
-@media (min-width: 62em){
+@media (min-width: 62em) {
 
   .featurette-heading[_ngcontent-c10] {
-      margin-top: 0rem;
+    margin-top: 0rem;
   }
-  }
-  
-  @media (min-width: 62em){
+}
+
+@media (min-width: 62em) {
 
   .featurette-heading[_ngcontent-c10] {
-        margin-top: 0rem;
+    margin-top: 0rem;
   }
-  }
-  
-  /* Featurettes
-  ------------------------- */
-  
-  .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-  }
-  
-  /* Thin out the marketing headings */
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: -.10rem;
+  margin-bottom: 5px
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+
   .featurette-heading {
-
-    font-weight: 300;
-    line-height: 2;
-    letter-spacing: -.10rem;
-    margin-bottom: 5px
-  }
-  
-  
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
-  
-  @media (min-width: 40em) {
-  
-    .featurette-heading {
-      font-size: 50px;
-    }
-    
-  }
-  
-  @media (min-width: 62em) {
-    .featurette-heading {
-      margin-top: 7rem;
-    }
+    font-size: 50px;
   }
 
-    
+}
 
-  
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
 
 
-  
+
+
+
+
