@@ -1,99 +1,143 @@
-.card-header {
-
-  border: 0cm;
-}
-
-.menu {
-
-  text-align: center;
-}
-
-#heading {
-
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0);
-
-}
-
-#item-header {
-
-  text-align: left;
-  margin-left: 10px;
-}
-
-#description-header {
-
-  text-align: center;
-}
-
-#price-header {
-
-  text-align: right;
-  margin-right: 10px;
-}
-
-#item {
-
-  text-align: left;
-  margin-left: 10px;
-}
-
-#description {
-
-  text-align: center;
-}
-
-#price {
-
-  text-align: right;
-  margin-right: 10px;
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-.flex-equal > * {
-  -ms-flex: 1;
-  -webkit-box-flex: 1;
-  flex: 1;
-}
-
-@media (min-width: 768px) {
-  .flex-md-equal > * {
-    -ms-flex: 1;
-    -webkit-box-flex: 1;
-    flex: 1;
-  }
-}
-
-div.container.menu {
-  padding-right: 4em;
-}
-
-@media (max-width: 1000px) {
-  .description {
-    display: none
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/raleway_thin-webfont.ttf') format('truetype');
   }
 
-  .food {
-    font-size: 12px;
+  .card-header{
+
+      border: 0cm;
   }
 
-  .drink {
-    font-size: 12px;
-  }
-}
+  .menu{
 
-.info-text p {
-  display: inline-block;
-  line-height: 2.1;
-}
+    text-align: center;
+  }
+
+  #heading {
+
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0);
+
+  }
+
+
+
+    #item-header{
+
+      text-align: left;
+      margin-left: 10px;
+  }
+
+    #description-header {
+
+      text-align: center;
+  }
+
+
+    #price-header {
+
+      text-align: right;
+      margin-right: 10px;
+  }
+
+  #item{
+
+      text-align: left;
+      margin-left: 10px;
+  }
+
+    #description {
+
+      text-align: center;
+  }
+
+
+    #price {
+
+      text-align: right;
+      margin-right: 10px;
+  }
+
+  .border-top {
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .border-bottom {
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .box-shadow {
+      box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    }
+
+    .flex-equal > * {
+      -ms-flex: 1;
+      -webkit-box-flex: 1;
+      flex: 1;
+    }
+
+    @media (min-width: 768px) {
+      .flex-md-equal > * {
+        -ms-flex: 1;
+        -webkit-box-flex: 1;
+        flex: 1;
+      }
+    }
+
+    div {
+      font-family: 'Raleway', sans-serif;
+    }
+
+    div.container.menu
+  {
+    padding-right: 4em;
+   }
+
+   @media(max-width:1000px){
+    .description{display:none}
+    .food{ font-size: 12px;}
+    .drink{ font-size: 12px;}
+  }
+
+  .info-text p {
+
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    line-height: 2.1;
+
+  }
+  .allItems{
+    width: 90%;
+    margin: 100px auto;
+
+    -moz-column-width: 220px;
+    -webkit-column-width: 220px;
+    column-width: 220px;
+
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+
+    -moz-column-gap: 20px;
+    -webkit-column-gap: 20px;
+    column-gap: 20px;
+
+  }
+
+  .singleItem[title] figure img{
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+
+  .allItems .singleItem[title]{
+    text-decoration: none;
+    padding: 3rem;
+    color: #424242;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    /* transition: all .3s cubic-bezier(0.25, .8, .25, 1); */
+  }

@@ -12,6 +12,7 @@ export class FoodDrinkComponent implements OnInit {
   private menuFood: Entry<any>[] = [];
   private menuDrinks: Entry<any>[] = [];
   private suppliersText: Entry<any>[] = [];
+  private suppliersPhoto: Entry<any>[] = [];
 
   constructor(private contentfulService: ContentfulService) { }
 
@@ -26,6 +27,9 @@ export class FoodDrinkComponent implements OnInit {
 
     this.contentfulService.getSuppliersDesc()
     .then(suppliersText => this.suppliersText = suppliersText);
+
+    this.contentfulService.getSuppliersPhoto()
+    .then(suppliersPhoto => this.suppliersPhoto = suppliersPhoto);
   }
   
 

@@ -18,6 +18,7 @@ const CONFIG = {
     menuDrinks: 'menuDrinks',
     menuFood: 'menuFood',
     suppliersDescription:'suppliersText',
+    suppliersPhoto:'suppliersPhoto'
   }
 };
 
@@ -136,6 +137,12 @@ export class ContentfulService {
       .then(res => res.items);
   }
 
+  getSuppliersPhoto(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.suppliersPhoto
+    }, query))
+      .then(res => res.items);
+  }
     // return a custom config if available
     getConfig(): { space: string, accessToken: string } {
       return this.config !== CONFIG.credentials ?
