@@ -78,6 +78,7 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { EventsComponent } from './components/events/events.component';
 
 
 const appRoutes: Routes = [
@@ -87,6 +88,7 @@ const appRoutes: Routes = [
   {path: 'food', component: FoodDrinkComponent},
   {path: 'furniture', component: FurnitureComponent},
   {path: 'homeware', component: HomewareComponent},
+  {path: 'events', component: EventsComponent},
   {path: 'contact', component: ContactComponent}
 ];
 
@@ -108,6 +110,7 @@ const appRoutes: Routes = [
     HeadingComponent,
     MdToHtmlPipe,
     FoodDrinkComponent,
+    EventsComponent,
 
 
   ],

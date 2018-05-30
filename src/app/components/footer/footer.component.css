@@ -35,10 +35,16 @@ ul.social-buttons li a {
   background-color: #212529
 }
 
-ul.social-buttons li a:active,
-ul.social-buttons li a:focus,
-ul.social-buttons li a:hover {
+ul.social-buttons li.instagram a:active,
+ul.social-buttons li.instagram a:focus,
+ul.social-buttons li.instagram a:hover {
   background-color: #fed136
+}
+
+ul.social-buttons li.facebook a:active,
+ul.social-buttons li.facebook a:focus,
+ul.social-buttons li.facebook a:hover {
+  background-color: #366bfe
 }
 
 /* class="navbar-btn btn-danger btn pull-right"> */

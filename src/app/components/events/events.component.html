@@ -1,0 +1,40 @@
+<div class = "container mt-4 mb-3">
+  <h1 class ="menu mt-3">Events</h1>
+</div>
+
+
+<div class ="container" *ngIf="events.length == 0" >
+    <div class="card text-center">
+      <div class="card-body">
+        <h3 class="card-title">Events</h3>
+        <p class="card-text mt-3 mb-2">There are currently no events!</p>
+        <p class="card-text mt-3 mb-2">Please check again soon as we always love to host. Get in conctact if you would like to throw your own event.</p>
+        <a routerLink="/contact" style="display: table; margin: 0 auto;" mat-raised-button>Contact</a>
+      </div>
+    </div>
+    </div> 
+
+
+<div class ="container" *ngFor="let event of events">
+<div class="card text-center">
+  <div class="card-body">
+    <h3 class="card-title">{{event.fields.title }}</h3>
+    <p class="card-text mt-3 mb-2">{{event.fields.description}}</p>
+    <div class= "container">
+      <div class="row">
+        <div class="col-12">
+            <i class="far fa-calendar"></i>
+            <p mt-3>{{event.fields.date}}</p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <i class="far fa-clock"></i>
+              <p mt-3>{{event.fields.time}}</p>
+          </div>
+        </div>
+    </div>
+    <a href="{{event.fields.website}}" style="display: table; margin: 0 auto;" mat-raised-button>Tickets</a>
+  </div>
+</div>
+</div>
