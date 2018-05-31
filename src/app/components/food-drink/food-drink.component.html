@@ -1,87 +1,88 @@
-<div class = "container mt-4 mb-3">
-  <h1 class ="menu mt-3">Menu</h1>
+<div class="container mt-4 mb-3">
+  <h1 class="menu mt-3">Menu</h1>
 </div>
-<div class ="container menu pl-5" >
+<div class="container menu pl-5">
   <h2 class="display-5 text-center text-white overflow-hidden" style="padding-bottom:10px;"></h2>
-      <div id="accordion">
-      <div class="card" id ="card-format">
-        <div class="card-header" id="heading">
-          <h1 class="mb-0">
-            <p aria-controls="collapseOne" aria-expanded="false" class="btn" data-target="#collapseOne" data-toggle="collapse">Drinks</p>
-          </h1>
-        </div>
-        <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordion" id="collapseOne">
-          <div class="card-body">
-            <div class="container">
-              <div class="row drink" *ngFor="let row of menuDrinks" >
-                <div class="col" id ="item">
-                  {{row.fields.item}}
-                  <hr>
-                </div>
-                <div class="col description" id ="description">
-                  {{row.fields.description}}
-                  <hr>
-                </div>
-                <div class="col" id ="price">
-                  £ {{row.fields.price}}
-                  <hr>
-                </div>
+  <div id="accordion">
+    <div class="card" id="card-format">
+      <div class="card-header" id="heading">
+        <h1 class="mb-0">
+          <p aria-controls="collapseOne" aria-expanded="false" class="btn" data-target="#collapseOne"
+             data-toggle="collapse">Drinks</p>
+        </h1>
+      </div>
+      <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordion" id="collapseOne">
+        <div class="card-body">
+          <div class="container">
+            <div class="row drink" id="row-drink" *ngFor="let row of menuDrinks">
+              <div class="col" id="item">
+                {{row.fields.item}}
+                <hr>
+              </div>
+              <div class="col description" id="description">
+                {{row.fields.description}}
+                <hr>
+              </div>
+              <div class="col" id="price">
+                £ {{row.fields.price}}
+                <hr>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="card">
+    </div>
+    <div class="card">
       <div class="card-header" id="heading">
         <h1 class="mb-0">
-          <p aria-controls="collapseTwo" aria-expanded="false" class="btn collapsed" data-parent="ture" data-target="#collapseTwo" data-toggle="collapse">Food</p>
+          <p aria-controls="collapseTwo" aria-expanded="false" class="btn collapsed" data-parent="ture"
+             data-target="#collapseTwo" data-toggle="collapse">Food</p>
         </h1>
       </div>
       <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordion" id="collapseTwo">
         <div class="card-body">
           <div class="container">
-            <div class="row food" *ngFor="let row of menuFood">
-              <div class="col" id ="item">
+            <div class="row food" id="row-drink" *ngFor="let row of menuFood">
+              <div class="col" id="item">
                 {{row.fields.item}}
                 <hr>
               </div>
-              <div class="col description" id ="description">
+              <div class="col description" id="description">
                 {{row.fields.description}}
                 <hr>
               </div>
-              <div class="col" id ="price">
-               £ {{row.fields.price}}
-               <hr>
+              <div class="col" id="price">
+                £ {{row.fields.price}}
+                <hr>
               </div>
             </div>
-     
           </div>
         </div>
       </div>
-</div>
-</div>
-</div>
-<div class = "container mt-4 mb-3">
-    <h1 class ="menu mt-3">Suppliers</h1>
+    </div>
   </div>
- 
-  <div class = "container mt-4 info-text" *ngFor="let text of suppliersText" >
-      <p>
-          {{text.fields.description}}
-      </p>
+</div>
+<div class="container mt-4 mb-3">
+  <h1 class="menu mt-3">Suppliers</h1>
+</div>
+
+<div class="container mt-4 info-text" *ngFor="let text of suppliersText">
+  <p>
+    {{text.fields.description}}
+  </p>
+</div>
+
+<div class="allItems">
+  <div class="singleItem" title="Furniture Item" *ngFor="let photo of suppliersPhoto">
+    <div>
+
+      <figure>
+        <img src="{{ photo.fields.photo.fields.file.url }}">
+
+      </figure>
+
     </div>
 
-    <div class="allItems">
-        <div class="singleItem" title="Furniture Item" *ngFor="let photo of suppliersPhoto">
-          <div>
-  
-            <figure>
-              <img src="{{ photo.fields.photo.fields.file.url }}">
-  
-            </figure>
-  
-          </div>
-  
-  
-        </div>
-      </div>
+
+  </div>
+</div>
