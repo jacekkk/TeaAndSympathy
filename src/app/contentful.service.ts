@@ -19,7 +19,8 @@ const CONFIG = {
     menuFood: 'menuFood',
     suppliersDescription:'suppliersText',
     suppliersPhoto:'suppliersPhoto',
-    events:'events'
+    events:'events',
+    openingTimes:'openingTimes'
   }
 };
 
@@ -148,6 +149,12 @@ export class ContentfulService {
   getEvent(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.events
+    }, query))
+      .then(res => res.items);
+  }
+  getOpeningTimes(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.openingTimes
     }, query))
       .then(res => res.items);
   }

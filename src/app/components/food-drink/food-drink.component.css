@@ -95,6 +95,12 @@ div.container.menu {
 
   .food {
     font-size: 12px;
+    
+  }
+
+  #row-food{
+
+    border-bottom: 1px solid black 
   }
 
   .drink {
@@ -110,7 +116,6 @@ div.container.menu {
 .allItems {
   width: 90%;
   margin: 0 auto 100px;
-
   -moz-column-width: 220px;
   -webkit-column-width: 220px;
   column-width: 220px;
@@ -128,12 +133,12 @@ div.container.menu {
 .singleItem[title] figure img {
   width: 100%;
   height: auto;
-  margin-top: 1rem;
+  
 }
 
 .allItems .singleItem[title] {
   text-decoration: none;
-  padding: 3rem;
+  padding: 5rem;
   color: #424242;
 
   display: flex;
