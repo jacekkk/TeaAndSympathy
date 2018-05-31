@@ -148,34 +148,34 @@
             <div class="container" style="padding-top: 10px;">
               <div class="row">
                 <div class="col-12">
-                  <table class="opening-times" cellpadding="5" width="100%">
+                  <table class="opening-times" cellpadding="5" width="100%" *ngFor="let opening of openingTimes">
                     <tr>
-                      <td class="first col-6">Monday</td>
-                      <td class="last col-6">8am - 4:30pm</td>
+                      <td class="first ">Monday</td>
+                      <td class="last">{{opening.fields.monday }}</td>
                     </tr>
                     <tr>
                       <td class="first">Tuesday</td>
-                      <td class="last">8am - 4:30pm</td>
+                      <td class="last">{{opening.fields.tuesday }}</td>
                     </tr>
                     <tr>
                       <td class="first">Wednesday</td>
-                      <td class="last">8am - 4:30pm</td>
+                      <td class="last">{{opening.fields.wednesday }}</td>
                     </tr>
                     <tr>
                       <td class="first">Thursday</td>
-                      <td class="last">8am - 4:30pm</td>
+                      <td class="last">{{opening.fields.thursday }}</td>
                     </tr>
                     <tr>
                       <td class="first">Friday</td>
-                      <td class="last">8am - 4:30pm</td>
+                      <td class="last">{{opening.fields.friday}}</td>
                     </tr>
                     <tr>
                       <td class="first">Saturday</td>
-                      <td class="last">9am - 5pm</td>
+                      <td class="last">{{opening.fields.saturday }}</td>
                     </tr>
                     <tr>
                       <td>Sunday</td>
-                      <td class="last-bottom">9am - 5pm</td>
+                      <td class="last-bottom">{{opening.fields.sunday }}</td>
                     </tr>
                   </table>
                   <div class="mt-5 pb-4"></div>

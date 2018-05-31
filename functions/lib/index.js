@@ -24,7 +24,7 @@ exports.sendMessageToEmail = functions.database.ref('/messages/{pushId}').onWrit
     }
     const mailOptions = {
         from: gmailEmail,
-        to: '40212585@live.napier.ac.uk',
+        to: 'zoeschmid@outlook.com',
         subject: subject,
         html: '<b>Sender</b>: ' + senderEmail + '<br><br><b>Phone</b>: ' + phone + '<p><b>Message</b>: ' + body + '<br><br>'
     };
