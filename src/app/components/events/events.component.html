@@ -8,11 +8,11 @@
       <div class="card-body">
         <h3 class="card-title">Events</h3>
         <p class="card-text mt-3 mb-2">There are currently no events!</p>
-        <p class="card-text mt-3 mb-4">Please check again soon as we always love to host. Get in conctact if you would like to throw your own event.</p>
+        <p class="card-text mt-3 mb-2">Please check again soon as we always love to host. Get in contact if you would like to throw your own event.</p>
         <a routerLink="/contact" style="display: table; margin: 0 auto;" mat-raised-button>Contact</a>
       </div>
     </div>
-    </div> 
+    </div>
 
 
 <div class ="container" *ngFor="let event of events">
@@ -34,7 +34,7 @@
           </div>
         </div>
     </div>
-    <a href="{{event.fields.website}}" style="display: table; margin: 0 auto;" mat-raised-button>Tickets</a>
+    <a href="{{event.fields.website}}" target="_blank" style="display: table; margin: 0 auto;" mat-raised-button>Tickets</a>
   </div>
 </div>
 </div>
