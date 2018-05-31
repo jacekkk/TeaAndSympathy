@@ -9,12 +9,12 @@ import {Entry} from 'contentful';
 })
 export class EventsComponent implements OnInit {
 
-  private events: Entry<any>[] = [];
+  events: Entry<any>[] = [];
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-  
+
     this.contentfulService.getEvent()
     .then(events=> this.events = events);
   }

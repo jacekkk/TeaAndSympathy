@@ -9,17 +9,17 @@ import {Entry} from 'contentful';
 })
 export class MenuComponent implements OnInit {
 
-  private menuFood: Entry<any>[] = [];
-  private menuDrinks: Entry<any>[] = [];
+  menuFood: Entry<any>[] = [];
+  menuDrinks: Entry<any>[] = [];
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-    
+
     this.contentfulService.getMenuDrinks()
     .then(menuDrinks => this.menuDrinks = menuDrinks);
 
-     
+
     this.contentfulService.getMenuFood()
     .then(menuFood => this.menuFood = menuFood);
   }

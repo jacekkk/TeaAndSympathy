@@ -15,7 +15,7 @@ import {AfterViewChecked} from '@angular/core';
 
 export class HomewareComponent implements OnInit, AfterViewChecked {
   // define private class properties
-  private homewareItems: Entry<any>[] = [];
+  homewareItems: Entry<any>[] = [];
 
   constructor(private contentfulService: ContentfulService,
               public dialog: MatDialog) {

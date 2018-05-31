@@ -15,15 +15,15 @@ export class HeadingComponent implements OnInit {
   dangerousUrl: any;
   trustedUrl:any;
 
-  
-  private homePhoto: Entry<any>[] = [];
 
-  constructor(private  _router : Router, private contentfulService: ContentfulService,private _sanitizer: DomSanitizer) {}
+  homePhoto: Entry<any>[] = [];
+
+  constructor(public  _router : Router, private contentfulService: ContentfulService,private _sanitizer: DomSanitizer) {}
 
   public sanitizeImage(image: string) {
     return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
   }
-  
+
 
   ngOnInit() {
 

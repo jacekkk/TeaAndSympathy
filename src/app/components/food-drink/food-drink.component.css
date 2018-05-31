@@ -32,7 +32,7 @@
   margin-right: 5px;
 }
 
-#row-drink{
+#row-drink {
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -85,7 +85,6 @@
 }
 
 div.container.menu {
-  padding-right: 4em;
 }
 
 @media (max-width: 1000px) {
@@ -95,12 +94,12 @@ div.container.menu {
 
   .food {
     font-size: 12px;
-    
+
   }
 
-  #row-food{
+  #row-food {
 
-    border-bottom: 1px solid black 
+    border-bottom: 1px solid black
   }
 
   .drink {
@@ -133,14 +132,13 @@ div.container.menu {
 .singleItem[title] figure img {
   width: 100%;
   height: auto;
-  
+
 }
 
 .allItems .singleItem[title] {
   text-decoration: none;
   padding: 5rem;
   color: #424242;
-
   display: flex;
   justify-content: center;
   align-items: center;

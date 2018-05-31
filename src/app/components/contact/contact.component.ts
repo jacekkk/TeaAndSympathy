@@ -86,7 +86,7 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  private openingTimes: Entry<any>[] = [];
+  openingTimes: Entry<any>[] = [];
 
   ngOnInit() {
     this.message = new Message();
