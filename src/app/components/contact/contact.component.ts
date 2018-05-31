@@ -12,6 +12,8 @@ import 'rxjs/add/observable/forkJoin';
 import 'rxjs/add/observable/zip';
 import 'rxjs/add/observable/forkJoin';
 import 'rxjs/add/operator/first';
+import {ContentfulService} from '../../contentful.service';
+import {Entry} from 'contentful';
 
 declare var google: any;
 
@@ -74,7 +76,7 @@ export class ContactComponent implements OnInit {
     Validators.maxLength(1000)
   ]);
 
-  constructor(fb: FormBuilder,
+  constructor(fb: FormBuilder,private contentfulService: ContentfulService,
               private messageService: MessageService,
               public dialog: MatDialog,
               private storage: AngularFireStorage) {
@@ -84,12 +86,17 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  private openingTimes: Entry<any>[] = [];
+
   ngOnInit() {
     this.message = new Message();
     this.initMap();
 
     this.spinnerButton = document.getElementById('spinner');
     this.spinnerButton.hidden = true;
+
+    this.contentfulService.getOpeningTimes()
+    .then(openingTimes=> this.openingTimes = openingTimes);
   }
 
   getFiles(event: FileList) {
