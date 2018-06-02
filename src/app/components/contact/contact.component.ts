@@ -73,7 +73,7 @@ export class ContactComponent implements OnInit {
   // tracks the value message text area in the form
   messageFormControl = new FormControl('', [
     Validators.required,
-    Validators.maxLength(1000)
+    Validators.maxLength(2000)
   ]);
 
   constructor(fb: FormBuilder,private contentfulService: ContentfulService,
@@ -86,7 +86,7 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  private openingTimes: Entry<any>[] = [];
+  openingTimes: Entry<any>[] = [];
 
   ngOnInit() {
     this.message = new Message();

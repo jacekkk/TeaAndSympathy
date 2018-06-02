@@ -9,16 +9,16 @@ import {Entry} from 'contentful';
 })
 export class LandingComponent implements OnInit {
 
-  private landingContent: Entry<any>[] = [];
+  landingContent: Entry<any>[] = [];
 
-  private landingFurniture: Entry<any>[] = [];
+  landingFurniture: Entry<any>[] = [];
 
-  private landingHomeware: Entry<any>[] = [];
+  landingHomeware: Entry<any>[] = [];
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-  
+
     this.contentfulService.getLandingContent()
     .then(landingContent=> this.landingContent = landingContent);
 

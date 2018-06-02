@@ -20,7 +20,7 @@ const CONFIG = {
     suppliersDescription:'suppliersText',
     suppliersPhoto:'suppliersPhoto',
     events:'events',
-    openingTimes:'openingTimes'
+    openingTimes:'openingTimes',
   }
 };
 

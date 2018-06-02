@@ -15,7 +15,7 @@ import {AfterViewChecked} from '@angular/core';
 
 export class FurnitureComponent implements OnInit, AfterViewChecked {
   // define private class properties
-  private furnitureItems: Entry<any>[] = [];
+  furnitureItems: Entry<any>[] = [];
 
   constructor(private contentfulService: ContentfulService,
               public dialog: MatDialog) {
